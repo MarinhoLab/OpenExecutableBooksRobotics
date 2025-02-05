@@ -18,4 +18,5 @@ This work is licensed under a
 |------|-----|----|
 |1|Python basics|[link](https://github.com/MarinhoLab/OpenExecutableBooksRobotics/blob/main/lesson1_tutorial.ipynb)|
 |2|Rigid body transformation basics|[link](https://github.com/MarinhoLab/OpenExecutableBooksRobotics/blob/main/lesson2_tutorial.ipynb)|
+|3|Planar robot forward kinematics|[link](https://github.com/MarinhoLab/OpenExecutableBooksRobotics/blob/main/lesson3_tutorial.ipynb)|
 
