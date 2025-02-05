@@ -32,6 +32,11 @@ jobs:
           python -m pip install jupyter
           python -m jupyter nbconvert --output-dir='./website' --execute --to html lesson1_tutorial.ipynb
 
+      - name: Setup git name
+        run: |
+             git config --global user.email "murilomarinho@ieee.org"
+             git config --global user.name "Murilo Marinho (GithubAction)"
+
       - name: Publish website changes
         run: |
           cd website
