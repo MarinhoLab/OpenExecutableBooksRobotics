@@ -11,6 +11,8 @@ project:
   math:
     '\myvec': '\mathbf{\boldsymbol{ #1 }}'
     '\mymatrix': '\mathbf{\boldsymbol{ #1 }}'
+#  exports:
+#  - format: pdf
 site:
   template: book-theme
   # options:
