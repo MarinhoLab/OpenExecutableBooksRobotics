@@ -31,7 +31,7 @@ jobs:
           python -m pip install jupyter-book --pre
           python -m jupyter book build --html --execute
           ls -lah
-          git branch -b website
+          git checkout -b website
           cp -r _build/html website
 
       - name: Setup git name
