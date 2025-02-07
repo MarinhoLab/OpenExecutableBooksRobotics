@@ -44,4 +44,5 @@ jobs:
           cd website
           git add *
           git commit -a -m "[Automated] Latest automated version of the lessons."
+          git remote set-url origin git@github.com:MarinhoLab/OpenExecutableBooksRobotics.git
           git push origin website
