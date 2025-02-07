@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies and build page
         run: |
           python -m pip install jupyter-book --pre
-          python -m jupyter book build --all --execute
+          python -m jupyter book build --html --execute
           ls -lah
           cp -r _build/html website
 
