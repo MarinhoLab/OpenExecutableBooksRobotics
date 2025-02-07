@@ -2,6 +2,7 @@
 version: 1
 project:
   id: f420092a-e58c-429b-aca2-fb33c47059c7
+  jupyter: true # https://mystmd.org/guide/integrating-jupyter
   # title:
   # description:
   # keywords: []
