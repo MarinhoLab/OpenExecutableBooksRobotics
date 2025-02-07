@@ -22,10 +22,11 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
-    # https://stackoverflow.com/questions/75319573/failing-to-deploy-github-pages-because-of-write-permission
+    # https://github.com/actions/starter-workflows/blob/55eb18560f57898549b12afa6defe7cc79705d6a/pages/static.yml#L13
     permissions:
-      id-token: write
+      contents: read
       pages: write
+      id-token: write
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,9 +34,11 @@ jobs:
       - uses: actions/checkout@v4
 
       # Runs a set of commands using the runners shell
+      # https://mystmd.org/guide/deployment-github-pages#fn-except-custom-domains
       - name: Install dependencies and build page
         run: |
           python -m pip install jupyter-book --pre
+          export BASE_URL="https://marinholab.github.io/OpenExecutableBooksRobotics/"
           python -m jupyter book build --html --execute
 
       # https://jupyterbook.org/en/stable/publish/gh-pages.html
