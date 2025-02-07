@@ -36,19 +36,15 @@ jobs:
         run: |
           python -m pip install jupyter-book --pre
           python -m jupyter book build --html --execute
-          git checkout -b website
-          cp -r _build/html docs
 
-      - name: Setup git name
-        run: |
-             git config --global user.email "murilomarinho@ieee.org"
-             git config --global user.name "Murilo Marinho (GithubAction)"
+      # Upload the book's HTML as an artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "_build/html"
 
-      - name: Publish website changes
-        run: |
-          cd docs
-          git add *
-          git commit -a -m "[Automated] Latest automated version of the lessons."
-          git remote set-url origin https://${{secrets.GITHUB_TOKEN}}@github.com/MarinhoLab/OpenExecutableBooksRobotics.git
-          git push origin website
-      
+      # Deploy the book's HTML to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
