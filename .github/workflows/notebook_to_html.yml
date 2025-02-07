@@ -46,3 +46,5 @@ jobs:
           git commit -a -m "[Automated] Latest automated version of the lessons."
           git remote set-url origin git@github.com:MarinhoLab/OpenExecutableBooksRobotics.git
           git push origin website
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
