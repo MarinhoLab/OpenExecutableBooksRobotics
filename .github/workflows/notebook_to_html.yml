@@ -13,12 +13,18 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    
+    # https://stackoverflow.com/questions/75880266/cant-make-push-on-a-repo-with-github-actions
+    permissions:
+      contents: write
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -46,5 +52,4 @@ jobs:
           git commit -a -m "[Automated] Latest automated version of the lessons."
           git remote set-url origin git@github.com:MarinhoLab/OpenExecutableBooksRobotics.git
           git push origin website
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
