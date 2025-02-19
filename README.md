@@ -1,5 +1,9 @@
 # Open Executable Books in Robotics
 
+## Link for the website
+
+https://marinholab.github.io/OpenExecutableBooksRobotics/
+
 ## License
 Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
@@ -14,9 +18,10 @@ This work is licensed under a
 
 ## Lessons
 
-|Lesson|Title|Link|
-|------|-----|----|
-|1|Python basics|[link](https://github.com/MarinhoLab/OpenExecutableBooksRobotics/blob/main/lesson1_tutorial.ipynb)|
-|2|Rigid body transformation basics|[link](https://github.com/MarinhoLab/OpenExecutableBooksRobotics/blob/main/lesson2_tutorial.ipynb)|
-|3|Planar robot forward kinematics|[link](https://github.com/MarinhoLab/OpenExecutableBooksRobotics/blob/main/lesson3_tutorial.ipynb)|
+|Lesson|Title|
+|------|-----|
+|1|Python basics|
+|2|Rigid body transformation basics|
+|3|Planar robot forward kinematics|
+|4|Planar robot differential kinematics|
 
