@@ -24,4 +24,4 @@ This work is licensed under a
 |2|Rigid body transformation basics|
 |3|Planar robot forward kinematics|
 |4|Planar robot differential kinematics|
-
+|5|Planar robot kinematic control|
