@@ -1,20 +1,20 @@
 from dqrobotics.robot_modeling import DQ_SerialManipulatorDH
 import numpy as np
 
-class ThreeDofPlanarRobotDH:
+class SevenDofPlanarRobotDH:
     """
-    ThreeDofPlanarRobot regarding all methods related to the 3-DoF planar robot.
+    SevenDofPlanarRobot regarding all methods related to the 7-DoF planar robot.
     """
     
     def kinematics():
         """
-        Returns the kinematics of the ThreeDoFPlanarRobot as DQ_SerialManipulatorDH.
+        Returns the kinematics of the SevenDoFPlanarRobot as DQ_SerialManipulatorDH.
         """
-        DH_theta=  [0., 0., 0.]
-        DH_d =     [0., 0., 0.]
-        DH_a =     [1., 1., 1.]
-        DH_alpha = [0., 0., 0.]
-        DH_type  = [0,  0,  0]
+        DH_theta=  [0.] * 7
+        DH_d =     [0.] * 7
+        DH_a =     [1.] * 7
+        DH_alpha = [0.] * 7
+        DH_type  = [0] * 7
         
         dh_matrix = np.array([
             DH_theta,
