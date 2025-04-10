@@ -3,15 +3,30 @@ version: 1
 project:
   id: f420092a-e58c-429b-aca2-fb33c47059c7
   jupyter: true # https://mystmd.org/guide/integrating-jupyter
-  # title:
+  title: "OEBoRo: Open Executable Books in Robotics"
   # description:
   # keywords: []
-  # authors: []
   github: https://github.com/MarinhoLab/OpenExecutableBooksRobotics
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
   math:
     '\myvec': '\mathbf{\boldsymbol{ #1 }}'
     '\mymatrix': '\mathbf{\boldsymbol{ #1 }}'
+  authors:
+    - name: Murilo Marinho
+      affiliations:
+      - id: MMM
+        instituion: The University of Manchester
+        department: EEE
+        email: murilo.marinho@manchester.ac.uk
+        url: https://mmmarinho.github.io
+
+        ror: 027m9bs27
+
+  license:
+    content:
+      id: CC-BY-4.0
+
+
 #  exports:
 #  - format: pdf
   toc:
@@ -34,7 +49,7 @@ project:
         - file: dqrobotics/lesson7/lesson_dq7_robot_control_basics_part3.ipynb
         - file: dqrobotics/lesson8/lesson_dq8_optimization_based_robot_control.ipynb
     - file: CHANGELOG.md
-    
+
 site:
   template: book-theme
   # options:
