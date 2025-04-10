@@ -1,5 +1,6 @@
 from dqrobotics import *
 from math import cos, sin, acos, asin
+import matplotlib.pyplot as plt
 
 class OneDofPlanarRobot():
     '''OneDofPlanarRobot regarding all methods related to the 1-DoF planar robot'''
@@ -43,24 +44,27 @@ class OneDofPlanarRobot():
         j = self.l1_*(-i_*sin(theta1)+j_*cos(theta1))
         return vec3(j)
     
-    '''function plot(obj,theta1)
-        % Plot the 1-DoF planar robot in the xy-plane
+    def plot(obj,theta1):
+        """
+        Plot the 1-DoF planar robot in the xy-plane
+        """
         
-        % Get the fkm
+        # Get the fkm
         t_w_r = obj.fkm(theta1);
         
-        % Plot
-        plot([0 t_w_r.q(2)],[0 t_w_r.q(3)],'r')
-        hold on
-        % Mark the base with an o
-        plot(0,0,'o')
-        % Mark the end effector with an x
-        plot(t_w_r.q(2),t_w_r.q(3),'x')
-        hold off
-        title('The One DoF planar robot in the xy-plane')
-        xlim([-2 2])
-        xlabel('x [m]')
-        ylim([-2 2])
-        ylabel('y [m]')
-        end
-    end'''
+        # Plot
+        plt.plot([0, t_w_r.q[1]],[0, t_w_r.q[2]],'r')
+        # Mark the base with an o
+        plt.plot(0,0,'o')
+        # Mark the end effector with an x
+        plt.plot(t_w_r.q[1],t_w_r.q[2],'x')
+        
+        plt.title('The One DoF planar robot in the xy-plane')
+        plt.xlim([-2, 2])
+        plt.xlabel('x [m]')
+        plt.ylim([-2, 2])
+        plt.ylabel('y [m]')
+        
+        
+        
+    
