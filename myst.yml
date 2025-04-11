@@ -1,9 +1,10 @@
 # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
+
 project:
   id: f420092a-e58c-429b-aca2-fb33c47059c7
   jupyter: true # https://mystmd.org/guide/integrating-jupyter
-  title: "OEBoRo: Open Executable Books in Robotics"
+  title: "OXBR"
   # description:
   # keywords: []
   github: https://github.com/MarinhoLab/OpenExecutableBooksRobotics
@@ -19,13 +20,19 @@ project:
         department: EEE
         email: murilo.marinho@manchester.ac.uk
         url: https://mmmarinho.github.io
-
         ror: 027m9bs27
-
   license:
     content:
-      id: CC-BY-4.0
+      id: CC-BY-NC-SA-4.0
 
+# Information about where the book exists on the web [Needed for the run button interface]
+# https://jupyterbook.org/en/stable/interactive/thebe.html
+repository:
+  url                       : https://github.com/MarinhoLab/OpenExecutableBooksRobotics  # Online location of your book
+  path_to_book              : .  # Optional path to your book, relative to the repository root
+  branch                    : main  # Which branch of the repository should be used when creating links (optional)
+launch_buttons:
+  thebe                  : true
 
 #  exports:
 #  - format: pdf
