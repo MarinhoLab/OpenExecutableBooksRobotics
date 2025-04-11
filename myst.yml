@@ -12,6 +12,8 @@ project:
   math:
     '\myvec': '\mathbf{\boldsymbol{ #1 }}'
     '\mymatrix': '\mathbf{\boldsymbol{ #1 }}'
+    '\quat': '\mathbf{\boldsymbol{ #1 }}'
+    '\dual': '\varepsilon'
   authors:
     - name: Murilo Marinho
       affiliations:
