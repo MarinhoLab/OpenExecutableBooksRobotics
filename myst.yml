@@ -53,6 +53,6 @@ project:
 site:
   template: book-theme
   title: OXBR Website
-  # options:
-  #   favicon: favicon.ico
+  options:
+    favicon: favicon.ico
   #   logo: site_logo.png
