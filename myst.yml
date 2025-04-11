@@ -16,7 +16,7 @@ project:
     - name: Murilo Marinho
       affiliations:
       - id: MMM
-        instituion: The University of Manchester
+        institution: The University of Manchester
         department: EEE
         email: murilo.marinho@manchester.ac.uk
         url: https://mmmarinho.github.io
@@ -24,15 +24,6 @@ project:
   license:
     content:
       id: CC-BY-NC-SA-4.0
-
-# Information about where the book exists on the web [Needed for the run button interface]
-# https://jupyterbook.org/en/stable/interactive/thebe.html
-repository:
-  url                       : https://github.com/MarinhoLab/OpenExecutableBooksRobotics  # Online location of your book
-  path_to_book              : .  # Optional path to your book, relative to the repository root
-  branch                    : main  # Which branch of the repository should be used when creating links (optional)
-launch_buttons:
-  thebe                  : true
 
 #  exports:
 #  - format: pdf
@@ -59,6 +50,7 @@ launch_buttons:
 
 site:
   template: book-theme
+  title: OXBR Website
   # options:
   #   favicon: favicon.ico
   #   logo: site_logo.png
