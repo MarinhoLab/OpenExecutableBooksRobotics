@@ -33,11 +33,11 @@ project:
     - file: README.md
     - title: "[Basic] Robotics using numpy"
       children:
-        - file: lesson1_tutorial.ipynb
-        - file: lesson2_tutorial.ipynb
-        - file: lesson3_tutorial.ipynb
-        - file: lesson4_tutorial.ipynb
-        - file: lesson5_tutorial.ipynb
+        - file: basic_lessons/lesson1_tutorial.ipynb
+        - file: basic_lessons/lesson2_tutorial.ipynb
+        - file: basic_lessons/lesson3_tutorial.ipynb
+        - file: basic_lessons/lesson4_tutorial.ipynb
+        - file: basic_lessons/lesson5_tutorial.ipynb
     - title: "[Advanced] DQ Robotics"
       children:
         - file: dqrobotics/lesson1/lesson_dq1_python_basics.ipynb
@@ -49,6 +49,7 @@ project:
         - file: dqrobotics/lesson7/lesson_dq7_robot_control_basics_part3.ipynb
         - file: dqrobotics/lesson8/lesson_dq8_optimization_based_robot_control.ipynb
     - file: CHANGELOG.md
+    - file: KNOWN_ISSUES.md
 
 site:
   template: book-theme
