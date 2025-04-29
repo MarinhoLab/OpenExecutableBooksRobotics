@@ -33,6 +33,7 @@ project:
     - file: README.md
     - title: "[Basic] Robotics using numpy"
       children:
+        - file: basic_lessons/README.md
         - file: basic_lessons/lesson1_tutorial.ipynb
         - file: basic_lessons/lesson2_tutorial.ipynb
         - file: basic_lessons/lesson3_tutorial.ipynb
@@ -57,3 +58,4 @@ site:
   options:
     favicon: favicon.ico
   #   logo: site_logo.png
+
