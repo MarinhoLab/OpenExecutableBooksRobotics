@@ -41,6 +41,7 @@ project:
         - file: basic_lessons/lesson5_tutorial.ipynb
     - title: "[Advanced] DQ Robotics"
       children:
+        - file: dqrobotics/README.md
         - file: dqrobotics/lesson1/lesson_dq1_python_basics.ipynb
         - file: dqrobotics/lesson2/lesson_dq2_quaternion_basics.ipynb
         - file: dqrobotics/lesson3/lesson_dq3_dual_quaternion_basics_part1.ipynb
