@@ -23,9 +23,9 @@ This work is licensed under a
 
 ### Basic 
 
-See [The Basics of Kinematic Modeling and Control of Serial-link Manipulators Using `numpy`](basic_lessons/README.md) for robotic manipulators basics using `numpy`              
+See [The Basics of Kinematic Modeling and Control of Serial-link Manipulators Using `numpy`](basic_lessons/README.md).            
 
 
 ### Advanced 
 
-See [Dual Quaternion Lessons Index](dqrobotics/README.md) for Kinematic modeling and control of serial-link robotic manipulators using `dqrobotics`: From zero to hero.
+See [Kinematic modeling and control of serial-link robotic manipulators using `dqrobotics`: From zero to hero.](dqrobotics/README.md).

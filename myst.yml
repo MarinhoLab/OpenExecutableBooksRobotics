@@ -26,9 +26,14 @@ project:
   license:
     content:
       id: CC-BY-NC-SA-4.0
+  #exports:
+  #  - format: pdf
+  #    date: 10 May 2023
+      # https://github.com/myst-templates
+  #    template: plain_latex_book
+      #article: basic_lessons/README.md
+  #    output: exports/basic_lessons.pdf
 
-#  exports:
-#  - format: pdf
   toc:
     - file: README.md
     - title: "[Basic] Robotics using numpy"
@@ -51,7 +56,7 @@ project:
         - file: dqrobotics/lesson7/lesson_dq7_robot_control_basics_part3.ipynb
         - file: dqrobotics/lesson8/lesson_dq8_optimization_based_robot_control.ipynb
     - file: CHANGELOG.md
-    - file: KNOWN_ISSUES.md
+    - file: TODO.md
 
 site:
   template: book-theme
