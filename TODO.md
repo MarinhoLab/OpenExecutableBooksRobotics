@@ -10,5 +10,5 @@ that properly shows the video but not the image.
 
 - Converting from traditional Jupyter notebooks to text-based notebooks might be an interesting topic to explore. See
   [link](https://myst-nb.readthedocs.io/en/latest/authoring/text-notebooks.html#authoring-text-notebooks). Classic notebooks
-  store cell output on itself, with implications on version control software. While classic Jupyter notebooks are more
+  store cell output on themselves, with implications on version control software. While classic Jupyter notebooks are more
   easily usable without extensions, `jupytext` seemingly allows for the conversions. See [link](https://jupyterbook.org/en/stable/file-types/myst-notebooks.html).
