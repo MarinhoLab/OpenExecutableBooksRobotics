@@ -26,12 +26,13 @@ project:
   license:
     content:
       id: CC-BY-NC-SA-4.0
-  #exports:
-  #  - format: pdf
+  exports:
+    - format: pdf
+    - template: ieee-typst
   #    date: 10 May 2023
       # https://github.com/myst-templates
   #    template: plain_latex_book
-      #article: basic_lessons/README.md
+      articles: README.md
   #    output: exports/basic_lessons.pdf
 
   toc:
