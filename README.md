@@ -1,9 +1,5 @@
 # Open Executable Books in Robotics
 
-+++ {"part": "abstract"}
-This is my abstract!
-+++
-
 ## Link for the website
 
 https://marinholab.github.io/OpenExecutableBooksRobotics/
