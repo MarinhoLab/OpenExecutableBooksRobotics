@@ -22,12 +22,9 @@ kernelspec:
   well the import from the dynamic library.
 ```
 
-```{code-cell} ipython3
-try:
-    from dqrobotics import *
-    from marinholab.papers.tro2022.adaptive_control import *
-except ImportError as e:
-    print(f"In Jupyter notebooks, we sometimes have the `already registered` error. See error specifics: {e}")
+```{literalinclude} adaptive_control/example.py
+:start-after: # IMPORT START
+:end-before: # IMPORT END
 ```
 
 # Usage
