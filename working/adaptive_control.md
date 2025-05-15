@@ -8,7 +8,6 @@ kernelspec:
 # Installing
 
 ```{code-cell} ipython3
- :caption: Installing the library
 %%capture
 %pip install dqrobotics --pre
 %pip install dqrobotics --pre --break-system-packages
@@ -24,7 +23,6 @@ kernelspec:
 ```
 
 ```{code-cell} ipython3
- :caption: Importing the library
 try:
     from dqrobotics import *
     from marinholab.papers.tro2022.adaptive_control import *
