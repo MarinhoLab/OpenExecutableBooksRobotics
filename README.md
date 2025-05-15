@@ -1,13 +1,4 @@
----
-script:
-  "": 'async defer src="https://buttons.github.io/buttons.js'
----
-
 # Open Executable Books in Robotics
-
-## Show your love
-
-
 
 ## Link for the website
 

@@ -56,6 +56,10 @@ project:
         - file: dqrobotics/lesson6/lesson_dq6_robot_control_basics_part2.ipynb
         - file: dqrobotics/lesson7/lesson_dq7_robot_control_basics_part3.ipynb
         - file: dqrobotics/lesson8/lesson_dq8_optimization_based_robot_control.ipynb
+    - title: "[Incomplete] Working chapters"
+      children:
+        - file: working/README.md
+        - file: working/adaptive_control.md
     - file: CHANGELOG.md
     - file: TODO.md
 
