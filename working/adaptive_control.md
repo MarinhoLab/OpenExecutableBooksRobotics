@@ -1,5 +1,4 @@
 ---
-file_format: mystnb
 kernelspec:
   name: python3
   display_name: python3
@@ -20,11 +19,6 @@ This is an example implementation of the adaptive controller described in ()[htt
 ```
 
 ## Importing
-
-```{attention}
-  In a Jupyter notebook, you can wrap the import in a `try--except` block because the kernel does not always handle
-  well the import from the dynamic library.
-```
 
 ```{attention}
   Currenlly, `dqrobotics` must be installed with the `--pre` flag. 
@@ -58,6 +52,9 @@ parametric Jacobians can also be obtained.
 ```
 
 ```{code-cell} ipython3
+import matplotlib.pyplot as plt
+%matplotlib inline
 from adaptive_control.example import main
-main()
+fig, ax = main()
+plt.show()
 ```

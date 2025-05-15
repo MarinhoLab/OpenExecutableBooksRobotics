@@ -54,7 +54,7 @@ def vs050_raw_kinematics() -> Example_SerialManipulatorEDH:
 
 def main():
     # MAIN START
-    setup_plot()
+    fig, ax = setup_plot()
 
     estimated_robot = vs050_raw_kinematics()
     q_init = np.array([0, pi/4, pi/2, 0, pi/4, 0])
@@ -63,5 +63,8 @@ def main():
              q=q_init,
              line_color='r',
              cylinder_color="r",
-             cylinder_alpha=0.3)
+             cylinder_alpha=0.3,
+             ax=ax)
+
+    return fig, ax
     # MAIN END
