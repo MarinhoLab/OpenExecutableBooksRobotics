@@ -5,7 +5,14 @@ from sys import argv
 
 def loc(nb):
     cells = load(open(nb))['cells']
-    return sum(len(c['source']) for c in cells)
+
+    wc = 0
+    for c in cells:
+        for a in c['source']:
+            x = str(a).split()
+            wc = wc + len(x)
+            print(f"--- {x} ---")
+    return wc
 
 def run(ipynb_files):
     return sum(loc(nb) for nb in ipynb_files)
