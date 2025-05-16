@@ -37,6 +37,7 @@ jobs:
       # https://mystmd.org/guide/deployment-github-pages#fn-except-custom-domains
       - name: Install dependencies and build page
         run: |
+          brew install cppzmq
           python -m pip install jupyter-book --pre
           export BASE_URL="https://marinholab.github.io/OpenExecutableBooksRobotics/"
           python -m jupyter book build --html --execute
