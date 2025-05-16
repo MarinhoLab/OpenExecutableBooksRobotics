@@ -11,6 +11,7 @@ This is an example implementation of the adaptive controller described in ()[htt
 ## Installation
 
 ```{code-cell} ipython3
+%%capture
 %pip install dqrobotics --pre
 %pip install dqrobotics --pre --break-system-packages
 %pip install marinholab-papers-tro2022-adaptivecontrol
