@@ -5,6 +5,7 @@ from numpy import pi
 import matplotlib.pyplot as plt
 
 from dqrobotics import *
+from dqrobotics.robot_modeling import DQ_SerialManipulator
 import dqrobotics_extensions.pyplot as dqp
 
 from marinholab.papers.tro2022.adaptive_control import *
