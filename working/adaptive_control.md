@@ -21,6 +21,8 @@ This is an example implementation of the adaptive controller described in https:
 ```{code-cell} ipython3
 %pip install matplotlib marinholab-papers-tro2022-adaptivecontrol
 %pip install matplotlib marinholab-papers-tro2022-adaptivecontrol --break-system-packages
+from IPython.core.display import HTML
+HTML("<script>Jupyter.notebook.kernel.restart()</script>")
 ```
 
 ## Preamble
