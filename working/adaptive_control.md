@@ -10,7 +10,7 @@ kernelspec:
   This notebook is a work in progress.
 ```
 
-This is an example implementation of the adaptive controller described in ()[doi:10.1109/TRO.2022.3181047].
+This is an example implementation of the adaptive controller described in (Marinho and Adorno 2022)[https://doi.org/10.1109/TRO.2022.3181047].
 
 ## Installation
 
@@ -30,7 +30,7 @@ This is an example implementation of the adaptive controller described in ()[doi
   This API is subject to change.
 ```
 
-The implementation of the techniques described in ()[doi:10.1109/TRO.2022.3181047] shown
+The implementation of the techniques described in (Marinho and Adorno 2022)[https://doi.org/10.1109/TRO.2022.3181047]. shown
 herein is an **example**. This should be unequivocally understood from the prefix `Example_` added to all classes in 
 this module. 
 
