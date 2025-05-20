@@ -6,6 +6,10 @@ kernelspec:
 
 # Adaptive Control with Partial or Complete Task-Space Measurements
 
+```{warning}
+  This notebook is a work in progress.
+```
+
 This is an example implementation of the adaptive controller described in ()[http://doi.org/10.1109/TRO.2022.3181047].
 
 ## Installation
@@ -69,7 +73,7 @@ This initialization is similar to what is done in `DQ_SerialManipulatorDH`.
   Table I is also useful.
 ```
 
-The size of the configuration space {math}`\mathcal{Q}` of a robot is its degrees of freedom. Hence, for a {math}`n`-DoF
+The dimension of the configuration space {math}`\mathcal{Q}` of a robot is its degrees of freedom. Hence, for a {math}`n`-DoF
 robot its Jacobians will have {math}`n` rows.
 
 Differently from that, the parameter space {math}`\mathcal{A}` has a variable size depending on the parameters that
