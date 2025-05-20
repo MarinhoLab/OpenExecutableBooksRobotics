@@ -10,7 +10,7 @@ kernelspec:
   This notebook is a work in progress.
 ```
 
-This is an example implementation of the adaptive controller described in (Marinho and Adorno 2022)[https://doi.org/10.1109/TRO.2022.3181047].
+This is an example implementation of the adaptive controller described in https://doi.org/10.1109/TRO.2022.3181047.
 
 ## Installation
 
@@ -19,7 +19,6 @@ This is an example implementation of the adaptive controller described in (Marin
 ```
 
 ```{code-cell} ipython3
-%%capture
 %pip install matplotlib marinholab-papers-tro2022-adaptivecontrol
 %pip install matplotlib marinholab-papers-tro2022-adaptivecontrol --break-system-packages
 ```
@@ -30,7 +29,7 @@ This is an example implementation of the adaptive controller described in (Marin
   This API is subject to change.
 ```
 
-The implementation of the techniques described in (Marinho and Adorno 2022)[https://doi.org/10.1109/TRO.2022.3181047]. shown
+The implementation of the techniques described in https://doi.org/10.1109/TRO.2022.3181047. shown
 herein is an **example**. This should be unequivocally understood from the prefix `Example_` added to all classes in 
 this module. 
 
@@ -69,7 +68,7 @@ This initialization is similar to what is done in `DQ_SerialManipulatorDH`.
 ```
 
 ```{seealso}
-  Section II.A of ()[http://doi.org/10.1109/TRO.2022.3181047] describes the configuration space and the parameter space.
+  Section II.A of https://doi.org/10.1109/TRO.2022.3181047 describes the configuration space and the parameter space.
   Table I is also useful.
 ```
 
@@ -101,6 +100,14 @@ instance of `Example_SerialManipulatorEDH` can properly calculate the parametric
 ```
 
 ## Main function
+
+The controller will be based on the behavior of `estimated_robot`, which is our instance of `Example_SerialManipulatorEDH`.
+
+In a physical or simulation environment, the measurements {math}`\myvec{y}` will come from a sensor.
+
+Because in this worked example, we won't have access to one, we use another instance called `real_robot`
+to provide mock measurements. This is also the only way to study the behavior of the estimated parameters
+with respect to the real ones, given that the real parameters are not measurable physically.
 
 ```{literalinclude} adaptive_control/example.py
 :start-after: # MAIN START

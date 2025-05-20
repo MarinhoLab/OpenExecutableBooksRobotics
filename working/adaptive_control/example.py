@@ -69,7 +69,7 @@ def set_parameter_space_boundaries(r: Example_SerialManipulatorEDH,
     a = Example_ParameterType.a
     alpha = Example_ParameterType.alpha
 
-    # Let us suppose we have inaccuracies at the first joint
+    # Let us suppose we have inaccuracies at the first joint (0 indexed)
     parameter_space: list[Example_Parameter] = [
         Example_Parameter(0, theta, r.get_theta(0), r.get_theta(0) - deg2rad(opa), r.get_theta(0) + deg2rad(opa)),
         Example_Parameter(0, d, r.get_d(0), r.get_d(0) - opl, r.get_d(0) + opl),
@@ -80,8 +80,8 @@ def set_parameter_space_boundaries(r: Example_SerialManipulatorEDH,
     r.set_parameter_space(parameter_space)
 # PARAMETER SPACE END
 
+# MAIN START
 def main():
-    # MAIN START
     fig, ax = setup_plot()
 
     estimated_robot = vs050_raw_kinematics()
@@ -97,7 +97,7 @@ def main():
              ax = ax)
 
     return fig, ax
-    # MAIN END
+# MAIN END
 
 if __name__ == "__main__":
     fig, ax = main()
