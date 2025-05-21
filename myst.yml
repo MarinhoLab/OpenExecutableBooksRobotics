@@ -61,6 +61,8 @@ site:
   template: book-theme
   title: OXBR Website
   options:
-    logo: M3logo.png # The Logo has a white background in the black theme, not sure if my fault.
+    logo: M3logo_black.png
+    logo_dark: M3logo_white.svg
+    logo_text: 'OXBR: Open Executable Books in Robotics'
 
 
