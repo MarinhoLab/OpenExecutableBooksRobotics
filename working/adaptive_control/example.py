@@ -9,7 +9,7 @@ from dqrobotics.utils.DQ_Math import deg2rad
 import dqrobotics_extensions.pyplot as dqp
 
 from marinholab.papers.tro2022.adaptive_control import Example_SerialManipulatorEDH
-from marinholab.papers.tro2022.adaptive_control.Example_ParameterSpaceEDH import Example_ParameterType
+from marinholab.papers.tro2022.adaptive_control.Example_ParameterSpaceEDH import Example_Parameter, Example_ParameterType
 # IMPORT END
 
 # SETUP PLOT START
