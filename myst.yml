@@ -5,36 +5,30 @@ project:
   id: f420092a-e58c-429b-aca2-fb33c47059c7
   jupyter: true # https://mystmd.org/guide/integrating-jupyter
   title: "OXBR"
-  # description:
-  # keywords: []
   github: https://github.com/MarinhoLab/OpenExecutableBooksRobotics
-  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
   math:
     '\myvec': '\mathbf{\boldsymbol{ #1 }}'
     '\mymatrix': '\mathbf{\boldsymbol{ #1 }}'
     '\quat': '\mathbf{\boldsymbol{ #1 }}'
     '\dual': '\varepsilon'
   authors:
-    - name: Murilo Marinho
+    - name: Murilo M. Marinho
+      email: murilo.marinho@manchester.ac.uk
+      url: https://mmmarinho.github.io
+      # The LinkedIn key is listed in the docs but gives a warning and does nothing
+      # linkedin: www.linkedin.com/in/murilo-marques-marinho-046178252
+      # The GitHub key has no warning but also doesn't do anything
+      # github: https://github.com/mmmarinho
+      note: Lecturer in Robotics
+      orcid: 0000-0003-2795-9484
       affiliations:
       - id: MMM
         institution: The University of Manchester
         department: EEE
-        email: murilo.marinho@manchester.ac.uk
-        url: https://mmmarinho.github.io
         ror: 027m9bs27
   license:
     content:
       id: CC-BY-NC-SA-4.0
-  exports:
-    - format: pdf
-    - template: ieee-typst
-  #    date: 10 May 2023
-      # https://github.com/myst-templates
-  #    template: plain_latex_book
-      articles: README.md
-  #    output: exports/basic_lessons.pdf
-
   toc:
     - file: README.md
     - title: "[Basic] Robotics using numpy"
@@ -67,6 +61,6 @@ site:
   template: book-theme
   title: OXBR Website
   options:
-    favicon: favicon.ico
-  #   logo: site_logo.png
+    logo: M3logo.png # The Logo has a white background in the black theme, not sure if my fault.
+
 

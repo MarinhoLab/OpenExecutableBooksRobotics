@@ -1,10 +1,17 @@
 ---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
 kernelspec:
   name: python3
   display_name: python3
 ---
 
 # Adaptive Control with Partial or Complete Task-Space Measurements
+
+[^download]: This notebook can be downloaded as
+            **{jupyter-download:notebook}`hiding`** and {download}`working/adaptive_controller.md`
 
 ```{warning}
   This notebook is a work in progress.
@@ -18,11 +25,22 @@ This is an example implementation of the adaptive controller described in https:
   Currently, `--break-system-packages` is added for compatibility. 
 ```
 
+```{important}
+  In this notebook we are first uninstalling `dqrobotics` to remove the stable version of the library, if installed.
+  We need the latest version, that is, the one installed with `--pre`.
+```
+
 ```{code-cell} ipython3
+%%capture
+%pip uninstall dqrobotics --y
+%pip install dqrobotics --pre
+%pip install dqrobotics --pre --break-system-packages
+```
+
+```{code-cell} ipython3
+%%capture
 %pip install matplotlib marinholab-papers-tro2022-adaptivecontrol
 %pip install matplotlib marinholab-papers-tro2022-adaptivecontrol --break-system-packages
-from IPython.core.display import HTML
-HTML("<script>Jupyter.notebook.kernel.restart()</script>")
 ```
 
 ## Preamble
@@ -124,4 +142,12 @@ import matplotlib.pyplot as plt
 from adaptive_control.example import main
 fig, ax = main()
 plt.show()
+```
+
+```{code-cell} ipython3
+:tags: [hide-cell]
+# These hidden commands are added to hopefully make sure this module does not affect the possibly stable version
+# of dqrobotics installed in other notes from this same book.
+%pip uninstall dqrobotics --y
+%pip uninstall marinholab-papers-tro2022-adaptivecontrol --y
 ```
