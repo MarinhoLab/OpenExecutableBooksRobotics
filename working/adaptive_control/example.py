@@ -5,12 +5,11 @@ from numpy import pi
 import matplotlib.pyplot as plt
 
 from dqrobotics import *
-from dqrobotics.robot_modeling import DQ_SerialManipulator
 from dqrobotics.utils.DQ_Math import deg2rad
 import dqrobotics_extensions.pyplot as dqp
 
-from marinholab.papers.tro2022.adaptive_control import *
-from marinholab.papers.tro2022.adaptive_control.Example_ParameterSpaceEDH import *
+from marinholab.papers.tro2022.adaptive_control import Example_SerialManipulatorEDH
+from marinholab.papers.tro2022.adaptive_control.Example_ParameterSpaceEDH import Example_ParameterType
 # IMPORT END
 
 # SETUP PLOT START

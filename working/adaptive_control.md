@@ -95,14 +95,14 @@ This initialization is similar to what is done in `DQ_SerialManipulatorDH`.
 The dimension of the configuration space {math}`\mathcal{Q}` of a robot is its degrees of freedom. Hence, for a {math}`n`-DoF
 robot its Jacobians will have {math}`n` rows.
 
-Differently from that, the parameter space {math}`\mathcal{A}` has a variable size depending on the parameters that
+Differently from that, the parameter space {math}`\mathcal{A}` has a variable dimension depending on the parameters that
 can be adapted. When using the DH convention, they can be, for instance, one of the four parameters for each of the 
 joints. Each of which defined as part of the enumeration `Example_ParameterType`.
 
 Each parameter must be specified as an instance of `Example_Parameter`. This object will store the information about
 which link index it refers to, what `Example_ParameterType` it is, the current value of the parameter, and its boundaries.
 
-A list of `Example_Parameter` is used as input for `Example_SerialManipulatorEDH.set_parameter_space()` so that the
+A list of `Example_Parameter` is used as argument for `Example_SerialManipulatorEDH.set_parameter_space()` so that the
 instance of `Example_SerialManipulatorEDH` can properly calculate the parametric Jacobians for the parameters we chose.
 
 ```{note}
@@ -121,12 +121,13 @@ instance of `Example_SerialManipulatorEDH` can properly calculate the parametric
 
 ## Main function
 
-The controller will be based on the behavior of `estimated_robot`, which is our instance of `Example_SerialManipulatorEDH`.
+The controller adapts the parameters of `estimated_robot`, which is our instance of `Example_SerialManipulatorEDH`.
 
 In a physical or simulation environment, the measurements {math}`\myvec{y}` will come from a sensor.
 
-Because in this worked example, we won't have access to one, we use another instance called `real_robot`
-to provide mock measurements. This is also the only way to study the behavior of the estimated parameters
+Because in this worked example we won't have access to one, we use another instance called `real_robot`
+to provide mock measurements.
+This is also the **only** way to study the behavior of the estimated parameters
 with respect to the real ones, given that the real parameters are not measurable physically.
 
 ```{literalinclude} adaptive_control/example.py
@@ -151,3 +152,8 @@ plt.show()
 %pip uninstall dqrobotics --y
 %pip uninstall marinholab-papers-tro2022-adaptivecontrol --y
 ```
+
+## Troubleshooting
+
+- If you have an error saying that `DQ_Robotics::DQ_SerialManipulator` was not found when importing the `adaptive_control` module,
+  it most likely means that your `dqrobotics` version installed is not compatible with the one in `adaptive_control`.
