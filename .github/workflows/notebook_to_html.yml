@@ -40,6 +40,7 @@ jobs:
           brew install cppzmq
           python -m pip install jupyter-book --pre
           export BASE_URL="https://marinholab.github.io/OpenExecutableBooksRobotics/"
+          python -m jupyter server &
           python -m jupyter book build --html --execute
 
       # https://jupyterbook.org/en/stable/publish/gh-pages.html
