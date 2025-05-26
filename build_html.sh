@@ -12,7 +12,7 @@ export BASE_URL="https://marinholab.github.io/OpenExecutableBooksRobotics/"
 
 # Run once without the devel
 cp myst.yml _myst.yml
-sed -i.bak '/#USING DQROBOTICS DEVEL [START]/,/#USING DQROBOTICS DEVEL [END]/d' myst.yml
+sed -i.bak '/\#USING DQROBOTICS DEVEL [START]/,/\#USING DQROBOTICS DEVEL [END]/d' myst.yml
 cat myst.yml
 python -m jupyter book build --html --execute
 
