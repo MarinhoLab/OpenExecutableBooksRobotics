@@ -20,7 +20,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     
     # https://github.com/actions/starter-workflows/blob/55eb18560f57898549b12afa6defe7cc79705d6a/pages/static.yml#L13
     permissions:
@@ -37,10 +37,8 @@ jobs:
       # https://mystmd.org/guide/deployment-github-pages#fn-except-custom-domains
       - name: Install dependencies and build page
         run: |
-          brew install cppzmq
-          python -m pip install jupyter-book --pre
-          export BASE_URL="https://marinholab.github.io/OpenExecutableBooksRobotics/"
-          python -m jupyter book build --html --execute
+          chmod +x build_html.sh
+          ./build_html.sh
 
       # https://jupyterbook.org/en/stable/publish/gh-pages.html
       # Upload the book's HTML as an artifact
