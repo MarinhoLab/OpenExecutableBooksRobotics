@@ -2,10 +2,10 @@
 
 ## Kinematic modeling and control of serial-link robotic manipulators using `dqrobotics` Python: From zero to hero.
 
-This executable book contains eight lessons representing serial-link manipulator modeling in dual quaternions using `dqrobobotics` described in [](http://doi.org/10.1109/MRA.2020.2997920). It is a derivative
+This executable book contains eight lessons representing serial-link manipulator modeling in dual quaternions using `dqrobobotics` described in http://doi.org/10.1109/MRA.2020.2997920. It is a derivative
 work of a [`dqrobotics` MATLAB course](https://github.com/dqrobotics/learning-dqrobotics-in-matlab/tree/master/robotic_manipulators) from Murilo M. Marinho.
 
-The theory used in this book is described in works such as [@adorno:tel-00641678], [@vilhenaadorno:hal-01478225], and [](https://doi.org/10.1109/TRO.2019.2920078).
+The theory used in this book is described in works such as [@adorno:tel-00641678], [@vilhenaadorno:hal-01478225], and https://doi.org/10.1109/TRO.2019.2920078.
 
 # Using this book
 
