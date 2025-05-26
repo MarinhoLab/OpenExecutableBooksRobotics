@@ -12,11 +12,14 @@ export BASE_URL="https://marinholab.github.io/OpenExecutableBooksRobotics/"
 
 # Run once without the devel
 cp myst.yml _myst.yml
-sed -i.bak '/\#USING DQROBOTICS DEVEL [START]/,/\#USING DQROBOTICS DEVEL [END]/d' myst.yml
+sed -i.bak '/\#USING DQROBOTICS DEVEL \[START\]/,/\#USING DQROBOTICS DEVEL \[END\]/d' myst.yml
+echo "RUN ONE, WITHOUT DQROBOTICS DEVEL PAGES"
 cat myst.yml
 python -m jupyter book build --html --execute
 
 # Run again with the devel. The cached should no longer collide
-cp mv _myst.yml myst.yml
+mv _myst.yml myst.yml
 python -m jupyter book build --html --execute
+echo "RUN TWO, WITH DQROBOTICS DEVEL PAGES"
+cat myst.yml
 
