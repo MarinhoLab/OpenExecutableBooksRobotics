@@ -145,14 +145,6 @@ fig, ax = main()
 plt.show()
 ```
 
-```{code-cell} ipython3
-:tags: [hide-cell]
-# These hidden commands are added to hopefully make sure this module does not affect the possibly stable version
-# of dqrobotics installed in other notes from this same book.
-%pip uninstall dqrobotics --y
-%pip uninstall marinholab-papers-tro2022-adaptivecontrol --y
-```
-
 ## Troubleshooting
 
 - If you have an error saying that `DQ_Robotics::DQ_SerialManipulator` was not found when importing the `adaptive_control` module,
