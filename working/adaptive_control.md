@@ -39,8 +39,8 @@ This is an example implementation of the adaptive controller described in https:
 
 ```{code-cell} ipython3
 %%capture
-%pip install matplotlib marinholab-papers-tro2022-adaptivecontrol
-%pip install matplotlib marinholab-papers-tro2022-adaptivecontrol --break-system-packages
+%pip install matplotlib dqrobotics-pyplot marinholab-papers-tro2022-adaptivecontrol
+%pip install matplotlib dqrobotics-pyplot marinholab-papers-tro2022-adaptivecontrol --break-system-packages
 ```
 
 ## Preamble
