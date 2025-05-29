@@ -4,7 +4,7 @@
 python -m pip install jupyter-book --pre
 
 # Otherwise the links will not be correctly set up for th webpage
-export BASE_URL="https://marinholab.github.io/OpenExecutableBooksRobotics/"
+export BASE_URL="https://marinholab.github.io/OpenExecutableBooksRobotics"
 
 # This is a bit hacky.
 # https://github.com/orgs/jupyter-book/discussions/2055#discussioncomment-13250715
