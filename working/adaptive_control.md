@@ -49,11 +49,11 @@ This is an example implementation of the adaptive controller described in https:
   This API is subject to change.
 ```
 
-The implementation of the techniques described in https://doi.org/10.1109/TRO.2022.3181047. shown
+The implementation of the techniques described in https://doi.org/10.1109/TRO.2022.3181047 and shown
 herein is an **example**. This should be unequivocally understood from the prefix `Example_` added to all classes in 
 this module. 
 
-It is expected that this module will be an integral part of `dqrobotics`. When that does happen, it might be modified
+It is expected that this module will be an integral part of `dqrobotics` soon :tm:. When that does happen, it might be modified
 both in obvious ways, such as the swap to the prefix `DQ_`, and more subtle ways, such as different ways to retrieve
 parameters, variable names, and so on.
 
