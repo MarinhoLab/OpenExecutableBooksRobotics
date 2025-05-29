@@ -8,7 +8,7 @@ The theory used in this book is described in works such as [@adorno:tel-00641678
 # Using this book
 
 Each lesson is a [Jupyter notebook](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html). Each lesson can be
-opened and executed with popular IDEs, such as [VSCode](https://code.visualstudio.com) and [PyCharm](https://www.jetbrains.com/pycharm/).
+downloaded, opened, and executed with popular IDEs, such as [VSCode](https://code.visualstudio.com) and [PyCharm](https://www.jetbrains.com/pycharm/).
 The reader is expected to follow it sequentially.
 
 # Contents
