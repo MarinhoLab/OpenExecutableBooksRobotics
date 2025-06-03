@@ -1,13 +1,13 @@
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa] [![Jupyter Book](https://github.com/MarinhoLab/OpenExecutableBooksRobotics/actions/workflows/notebook_to_html.yml/badge.svg)](https://github.com/MarinhoLab/OpenExecutableBooksRobotics/actions/workflows/notebook_to_html.yml) 
 
-<img src="https://github.com/user-attachments/assets/5442ab11-8a93-473d-a011-5aab2814562b" width="150" class="only-dark"> 
-<img src="https://github.com/user-attachments/assets/ba243787-dcf5-4273-860f-db72364686a0" width="150" class="only-light"> 
+<img src="https://github.com/user-attachments/assets/5442ab11-8a93-473d-a011-5aab2814562b" width="150"> 
 
 # Open Executable Books in Robotics
 
 ## Showing your love
 
-If this work was useful to you, please leave a star in the [Github repository](https://github.com/MarinhoLab/OpenExecutableBooksRobotics).
+If this work is useful to you,
+please leave a star in the [GitHub repository](https://github.com/MarinhoLab/OpenExecutableBooksRobotics).
 
 ## Citation
 
