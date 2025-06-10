@@ -17,11 +17,14 @@ please leave a star in the [GitHub repository](https://github.com/MarinhoLab/Ope
 
 ```bibtex
 @misc{marinho2025,
-author = {Marinho, Murilo Marques},
+author = {M. Marinho, Murilo},
 title = {Open Executable Books in Robotics},
 url = {https://marinholab.github.io/OpenExecutableBooksRobotics/},
 year = {2025}
 ```
+
+📓 Presented at The University of Manchester's Open Research Conference 2025 (See abstract book https://doi.org/10.48420/29069534.v3)
+
 
 ## Link for the website
 
