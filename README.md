@@ -23,8 +23,8 @@ url = {https://marinholab.github.io/OpenExecutableBooksRobotics/},
 year = {2025}
 ```
 
-📓 Presented at The University of Manchester's Open Research Conference 2025 (See abstract book https://doi.org/10.48420/29069534.v3)
-
+📓 Presented at The University of Manchester's Open Research Conference 2025
+  -  Presentation and abstract: https://doi.org/10.48420/29266976.v1
 
 ## Link for the website
 
