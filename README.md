@@ -1,6 +1,16 @@
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa] [![Jupyter Book](https://github.com/MarinhoLab/OpenExecutableBooksRobotics/actions/workflows/notebook_to_html.yml/badge.svg)](https://github.com/MarinhoLab/OpenExecutableBooksRobotics/actions/workflows/notebook_to_html.yml) 
 
-<img src="https://github.com/user-attachments/assets/5442ab11-8a93-473d-a011-5aab2814562b" width="150"> 
+```{image} TAB_allwhite.png
+:class: hidden dark:block
+:width: 30%
+:align: center
+```
+
+```{image} TAB_black.png
+:class: dark:hidden
+:width: 30%
+:align: center
+```
 
 # Open Executable Books in Robotics
 
