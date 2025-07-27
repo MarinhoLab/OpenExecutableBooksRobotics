@@ -16,14 +16,16 @@
 
 ## Showing your love
 
-If this work is useful to you,
+⭐ If this work is useful to you,
 please leave a star in the [GitHub repository](https://github.com/MarinhoLab/OpenExecutableBooksRobotics).
 
 ## Citation
 
-❗Please cite the [primary sources](https://en.wikipedia.org/wiki/Primary_source) for any technical aspects being cited.
+> [!IMPORTANT]
+> Please cite the [primary sources](https://en.wikipedia.org/wiki/Primary_source) for any technical aspects being cited.
 
-⭐ If and only if the citation is regarding aspects of the book itself, please cite as shown below.
+> [!NOTE]
+> If and only if the citation is regarding aspects of the book itself, please cite as shown below.
 
 ```bibtex
 @misc{marinho2025,
