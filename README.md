@@ -38,7 +38,9 @@ year = {2025}
 📓 Presented at The University of Manchester's Open Research Conference 2025
   -  Slides and abstract: https://doi.org/10.48420/29266976.v1
 
-```{video} https://youtu.be/zmIsahJvmCI?si=ABDXLGtjNNpIR1bN?
+```{iframe} https://youtu.be/zmIsahJvmCI?si=ABDXLGtjNNpIR1bN
+:width: 100%
+Presentation at the Open Research Conference 2025.
 ```
 
 ## Link for the website
