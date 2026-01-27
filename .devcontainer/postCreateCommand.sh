@@ -13,5 +13,8 @@ export PIP_BREAK_SYSTEM_PACKAGES=1
 python3 -m pip install jupyter-book --pre
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-\. "$HOME/.nvm/nvm.sh"
-nvm install 22
+export NVM_DIR="/.jbdevcontainer/config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+nvm install 22.17
+
+chmod +x start_from_devcontainer.sh
