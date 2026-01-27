@@ -12,7 +12,7 @@
 	"forwardPorts": [3000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "chmod +x .devcontainer/postCreateCommand.sh && .devcontainer/postCreateCommand.sh",
+	// "postCreateCommand": "export DEBIAN_FRONTEND=noninteractive && chmod +x .devcontainer/postCreateCommand.sh && .devcontainer/postCreateCommand.sh",
 
 	// Configure tool-specific properties.
   "customizations" : {
