@@ -9,7 +9,7 @@
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3000],
+	"forwardPorts": [3000, 3100],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "export DEBIAN_FRONTEND=noninteractive && chmod +x .devcontainer/postCreateCommand.sh && .devcontainer/postCreateCommand.sh",

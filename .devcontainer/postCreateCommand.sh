@@ -16,6 +16,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 NVM_DIR="/.jbdevcontainer/config/nvm"
 export NVM_DIR="$NVM_DIR"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm install 22.17
+nvm install 24
 
 chmod +x start_from_devcontainer.sh
