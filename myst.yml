@@ -39,6 +39,7 @@ project:
         - file: basic_lessons/lesson3_tutorial.ipynb
         - file: basic_lessons/lesson4_tutorial.ipynb
         - file: basic_lessons/lesson5_tutorial.ipynb
+        - file: basic_lessons/lesson1_exercise_answers.ipynb
     - title: "[Advanced] DQ Robotics"
       children:
         - file: dqrobotics/README.md
