@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026
+
+- I'm rewriting the first few lessons so that they are self-contained. Originally they relied more on self learning, but we have observed an increasing student preference towards directed material.
+  - In L3, I equalized the explanation of the RR planar robot with the later lessons. 
+  - In L3, I added a section about FKM based on a DH table. 
+- I am adding exercises and solutions to those exercises for each lesson. More examples will be added when needed.
+
 ## 2025
 
 - I'm removing `spatialmath` from the tutorials and moving any old content to `legacy/spatialmath`. The original intention when adding this library was to facilitate more complex content in later parts of the module. With variable levels of programming knowledge in the standard cohort this is not possible, and the following issues were observed:
