@@ -1,6 +1,7 @@
 from dqrobotics import *
 from math import cos, sin, acos, asin
 import matplotlib.pyplot as plt
+import numpy as np
 
 class OneDofPlanarRobot():
     '''OneDofPlanarRobot regarding all methods related to the 1-DoF planar robot'''
@@ -10,7 +11,10 @@ class OneDofPlanarRobot():
 
         
     def fkm(self,theta1):
-        '''fkm calculates the FKM for the 1-DoF planar robot.'''
+        """Calculate the FKM for the 1-DoF planar robot."""
+
+        # In some operations, theta1 can be converted to a ndarray
+        theta1 if np.isscalar(theta1) else np.ndarray.item(theta1)
         
         # The rotation about the joint
         x_w_1 = cos(theta1/2.0) + k_*sin(theta1/2.0)
@@ -23,23 +27,23 @@ class OneDofPlanarRobot():
         return translation(x_w_r)
     
     def ikm_tx(self,tx):
-        '''fkm calculates the IKM for the 1-DoF planar robot using the 
-           desired x-axis translation.'''
+        """Calculate the IKM for the 1-DoF planar robot using the
+           desired x-axis translation."""
         
         # Return the angle to reach the desired tx
         return acos(tx/self.l1_)
     
     
     def ikm_ty(self,ty):
-        '''fkm calculates the IKM for the 1-DoF planar robot using the 
-           desired y-axis translation.'''
+        """Calculate the IKM for the 1-DoF planar robot using the
+           desired y-axis translation."""
         
         # Return the angle to reach the desired ty
         return asin(ty/self.l1_)
     
     def translation_jacobian(self,theta1):
-        ''' Calculates the translation Jacobian of the 1-DoF planar
-           robot. '''
+        """ Calculate the translation Jacobian of the 1-DoF planar
+           robot. """
         
         j = self.l1_*(-i_*sin(theta1)+j_*cos(theta1))
         return vec3(j)
