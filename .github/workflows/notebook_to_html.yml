@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # To prevent github actions from eating up too many enterprise minutes
-    timeout-minutes: 10
+    timeout-minutes: 5
     
     # https://github.com/actions/starter-workflows/blob/55eb18560f57898549b12afa6defe7cc79705d6a/pages/static.yml#L13
     permissions:
