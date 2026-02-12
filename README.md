@@ -63,7 +63,7 @@ The content shown in this work is based on my own expert knowledge (and interpre
 ## Contents
 
 - [The Basics of Kinematic Modeling and Control of Serial-link Manipulators Using `numpy`](basic_lessons/README.md).            
-- [Kinematic modeling and control of serial-link robotic manipulators using `dqrobotics`: From zero to hero.](dqrobotics/README.md).
+- [Kinematic modeling and control of serial-link robotic manipulators using `dqrobotics`: From zero to hero.](other/dqrobotics).
 
 
 
