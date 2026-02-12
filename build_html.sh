@@ -18,8 +18,8 @@ cat myst.yml
 python -m jupyter book build --html --execute
 
 # Run again with the devel. The cached should no longer collide
-mv _myst.yml myst.yml
-python -m jupyter book build --html --execute
-echo "RUN TWO, WITH DQROBOTICS DEVEL PAGES"
-cat myst.yml
+# mv _myst.yml myst.yml
+# python -m jupyter book build --html --execute
+# echo "RUN TWO, WITH DQROBOTICS DEVEL PAGES"
+# cat myst.yml
 
