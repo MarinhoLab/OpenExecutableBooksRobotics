@@ -78,19 +78,8 @@ In this version of jupyter notebook, `myst.yml` is the soul of the book. It is v
 ```{literalinclude} myst.yml
 ```
 
-Everything in `myst.yml` is standard, aside from the following block.
+Everything in `myst.yml` is standard.
 
-```{literalinclude} myst.yml
-:start-at: #USING DQROBOTICS DEVEL [START]
-:end-at: #USING DQROBOTICS DEVEL [END]
-```
-
-This is a temporary solution to address notebooks that do not play well together. Currently, a jupyter book spawns one process
-of each notebook and results can be nondeterministic if notebooks can affect each other. More information can be seen
-[here](https://github.com/jupyter-book/mystmd/issues/1794).
-
-I'm combining that block with a simple use of `sed` to guarantee the initial lessons that use the stable version of `dqrobotics`
-run before lessons that need the development version of `dqrobotics.` For more information, see the file below.
 
 ```{literalinclude} build_html.sh
 ```
