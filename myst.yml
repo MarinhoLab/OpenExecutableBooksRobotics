@@ -40,6 +40,7 @@ project:
     - file: basic_lessons/lesson1_exercise_answers.ipynb
     - file: basic_lessons/lesson2_exercise_answers.ipynb
     - file: basic_lessons/lesson3_exercise_answers.ipynb
+    - file: basic_lessons/lesson4_exercise_answers.ipynb
     - file: other/dqrobotics.md
     - file: book.md
     - file: CHANGELOG.md
