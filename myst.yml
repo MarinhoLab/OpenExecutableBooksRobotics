@@ -49,6 +49,7 @@ project:
     - title: "Unstable"
       children:
         - file: unstable/README.md
+        - file: unstable/lesson0_tutorial.md
         - file: unstable/lesson1_tutorial.md
         - file: unstable/lesson2_tutorial.md
         - file: unstable/lesson3_tutorial.md

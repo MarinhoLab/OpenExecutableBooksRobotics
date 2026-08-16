@@ -183,7 +183,6 @@ print(f't_phi={t_phi}')
 Just in case `numpy` is not already installed, we can install it with the following command. Nothing will happen if the library is already installed.
 
 ````{code-cell}
-%%capture
 %pip install numpy 
 %pip install numpy --break-system-packages
 ````

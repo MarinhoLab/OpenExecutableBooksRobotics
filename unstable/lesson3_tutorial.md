@@ -7,7 +7,6 @@ kernelspec:
 # Prerequisites
 
 ````{code-cell}
-%%capture
 %pip install numpy
 %pip install numpy --break-system-packages
 ````

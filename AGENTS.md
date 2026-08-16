@@ -91,6 +91,11 @@ This script:
 - Fixes `attachment:` image syntax → plain relative paths
 - Handles both trailing-newline and no-trailing-newline source formats
 
+### MyST Compatibility Notes
+
+- **`%%capture` magic is not supported** in MyST text notebooks. The converter may produce cells containing `%%capture` (a Jupyter magic that suppresses output). These must be removed manually from the generated `.md` files, as MyST does not support this magic and the cell will fail to execute.
+- After regenerating with `convert_to_myst.py`, check all unstable `.md` files for `%%capture` and remove those lines.
+
 ---
 
 ## Building & Testing

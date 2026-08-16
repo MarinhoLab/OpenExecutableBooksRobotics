@@ -7,7 +7,6 @@ kernelspec:
 # Package installation
 
 ````{code-cell}
-%%capture
 %pip install numpy matplotlib
 %pip install numpy matplotlib --break-system-packages
 ````
