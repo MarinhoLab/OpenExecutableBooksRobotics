@@ -1,4 +1,4 @@
-# The Basics of Kinematic Modeling and Control of Serial-link Manipulators Using `numpy`
+# The Basics of Kinematic Modelling and Control of Serial-link Manipulators Using `numpy`
 
 In this five-lesson tutorial, we start from the very basics of scalar and matricial operations in Python using `numpy`,
 all the way until the basics of kinematic control. Until kinematic control, most is based on [@spong2020robot].
