@@ -14,8 +14,8 @@
 | `unstable/` | Work-in-progress text-only MyST notebooks (`.md` with `{code-cell}` directives) |
 | `other/` | Supplementary content (e.g. `dqrobotics.md`) |
 | `convert_to_myst.py` | Script: converts `basic_lessons/*.ipynb` → `unstable/*.md` |
-| `myst.yml` | MyST project config (root): LaTeX macros, TOC, site options |
-| `unstable/myst.yml` | MyST project config (unstable): mirrors root with adjusted paths |
+| `myst.yml` | MyST project config (root): LaTeX macros, TOC (including unstable section), site options |
+| `unstable/myst.yml` | Standalone MyST project config for unstable-only builds (optional) |
 | `build_html.sh` | Build script for `jupyter-book` (legacy pipeline) |
 | `conf.py` | MyST parser extensions (`dollarmath`) |
 | `_build/` | Build artifacts (excluded from git via `unstable/.gitignore`) |
@@ -111,14 +111,19 @@ pip install jupyter-book --pre
 
 ### Build Commands
 
-**MyST build (unstable/):**
+**MyST build (root — includes all lessons + unstable):**
 ```bash
-cd unstable
-myst build --execute --html
+myst build --html
 ```
 - `--execute` runs all code cells and caches results in `_build/execute/`
 - `--html` produces HTML output in `_build/html/`
 - Site format (JSON) goes to `_build/site/`
+
+**MyST build (unstable only — optional):**
+```bash
+cd unstable
+myst build --execute --html
+```
 
 **Legacy jupyter-book build (root):**
 ```bash
@@ -194,6 +199,6 @@ Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooks
 3. Add LaTeX macro raw cell (or markdown cell with `vscode` language metadata)
 4. Update `myst.yml` → add new file to `project.toc` list
 5. Run `python3 convert_to_myst.py` to regenerate `unstable/`
-6. Update `unstable/myst.yml` → add new `.md` file to TOC
-7. Test: `cd unstable && myst build --execute --html`
+6. Update `myst.yml` → add new unstable `.md` file to the "Unstable" section in `project.toc`
+7. Test: `myst build --html` from the repository root
 8. Open PR with descriptive title and body
