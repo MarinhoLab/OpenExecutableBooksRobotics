@@ -80,22 +80,6 @@ print(f'numpy version: {np.__version__}')
 print(f'matplotlib version: {matplotlib.__version__}')
 ````
 
-# Building the documentation (optional)
-
-To build the MyST documentation locally, you will also need:
-
-```bash
-pip install mystmd jupyter-server ipykernel
-```
-
-Then, from the repository root, run:
-
-```bash
-myst build --html
-```
-
-This produces the HTML output in `_build/html/`.
-
 # Deactivating the virtual environment
 
 When you are finished working, you can deactivate the virtual environment:
@@ -112,6 +96,5 @@ This lesson covered:
 - Activating and deactivating the virtual environment.
 - Installing the required packages (`numpy` and `matplotlib`).
 - Verifying the installation.
-- Optional: Installing MyST build tools for local documentation builds.
 
 Now you are ready to proceed to [Lesson 1](./lesson1_tutorial.md).
