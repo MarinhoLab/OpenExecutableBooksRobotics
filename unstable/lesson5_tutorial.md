@@ -218,7 +218,7 @@ plt.show()
 
 # Alternative Jacobian Inversion Strategies
 
-The SVD-based Moore-Penrose pseudo-inverse is a common strategy for matrix inversion. It is important to notice, however, that is is not the only one. In addition, it is not always the best choice for robot control.
+The SVD-based Moore-Penrose pseudo-inverse is a common strategy for matrix inversion. It is important to notice, however, that this is not the only one. In addition, it is not always the best choice for robot control.
 
 Another common strategy is the so-called damped pseudo-inverse, described below. It is usually the easiest choice to embed robustness to singularities in the controller.
 
@@ -386,7 +386,7 @@ As you noticed from the previous discussion, what is important for any new robot
 - Obtaining the analytical Jacobian so that the kinematic control can be applied.
 - The kinematic control itself, aside from dimensions, does not need to change in general.
 
-For instance, we can even solve with no diagram as long as this information is given. Consider an PRR manipulator with configuration space
+For instance, we can even solve with no diagram as long as this information is given. Consider a PRR manipulator with configuration space
 
 $$\mathbb{R}^3 \ni \myvec{q}_C \triangleq \left[\begin{array}{ccc}
          q_0 \\
