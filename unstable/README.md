@@ -10,6 +10,7 @@ has changed from `.ipynb` to `.md` with `{code-cell}` directives.
 
 | Number | Title and Link | Content |
 |--------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0 | [](./lesson0_tutorial.md) | Setting up the virtual environment and installing all required dependencies. |
 | 1 | [](./lesson1_tutorial.md) | Basic operations in Python and `numpy` |
 | 2 | [](./lesson2_tutorial.md) | Learn about elements and operations in $\mathbb{R}^n$, $SO(n)$, and $SE(n)$ with $n\in{\{2,3\}}$ related to positions, orientations, and poses, respectively. |
 | 3 | [](./lesson3_tutorial.md) | Learn about the composition of rigid body motion in series to obtain the forward kinematics model of a robotic manipulator. |

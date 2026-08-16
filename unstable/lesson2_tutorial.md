@@ -22,7 +22,6 @@ Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooks
 # Installing prerequisites
 
 ````{code-cell}
-%%capture
 %pip install numpy
 %pip install numpy --break-system-packages
 ````
