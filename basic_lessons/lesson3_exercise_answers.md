@@ -13,6 +13,12 @@ kernelspec:
 ## I found an issue
 Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooksRobotics/issues
 
+# Package installation
+
+````{code-cell}
+%%capture
+%pip install numpy
+````
 
 # Valid imports
 
