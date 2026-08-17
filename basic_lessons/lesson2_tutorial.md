@@ -17,13 +17,12 @@ The user of this notebook is expected to have prior knowledge in
 ## I found an issue
 Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooksRobotics/issues
 
-## Latex Macros
 
 # Installing prerequisites
 
 ````{code-cell}
+%%capture
 %pip install numpy
-%pip install numpy --break-system-packages
 ````
 
 # Imports

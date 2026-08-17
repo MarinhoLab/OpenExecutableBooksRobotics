@@ -33,16 +33,16 @@ project:
     - file: README.md
     - file: basic_lessons/README.md
     - file: basic_lessons/lesson0_tutorial.md
-    - file: basic_lessons/lesson1_tutorial.md
-    - file: basic_lessons/lesson2_tutorial.md
-    - file: basic_lessons/lesson3_tutorial.md
-    - file: basic_lessons/lesson4_tutorial.md
-    - file: basic_lessons/lesson5_tutorial.md
-    - file: basic_lessons/lesson1_exercise_answers.md
-    - file: basic_lessons/lesson2_exercise_answers.md
-    - file: basic_lessons/lesson3_exercise_answers.md
-    - file: basic_lessons/lesson4_exercise_answers.md
-    - file: basic_lessons/lesson5_exercise_answers.md
+    - file: basic_lessons/lesson1_tutorial.ipynb
+    - file: basic_lessons/lesson2_tutorial.ipynb
+    - file: basic_lessons/lesson3_tutorial.ipynb
+    - file: basic_lessons/lesson4_tutorial.ipynb
+    - file: basic_lessons/lesson5_tutorial.ipynb
+    - file: basic_lessons/lesson1_exercise_answers.ipynb
+    - file: basic_lessons/lesson2_exercise_answers.ipynb
+    - file: basic_lessons/lesson3_exercise_answers.ipynb
+    - file: basic_lessons/lesson4_exercise_answers.ipynb
+    - file: basic_lessons/lesson5_exercise_answers.ipynb
     - file: other/dqrobotics.md
     - file: book.md
     - file: CHANGELOG.md

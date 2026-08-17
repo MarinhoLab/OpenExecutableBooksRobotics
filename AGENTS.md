@@ -11,6 +11,7 @@
 | Path | Purpose |
 |------|---------|
 | `basic_lessons/` | Canonical source: MyST text notebooks (`.md` with `{code-cell}` directives) — 6 tutorials + 5 exercise answer keys |
+| `basic_lessons/.gitignore` | Excludes generated `.ipynb` files (produced at build time) |
 | `other/` | Supplementary content (e.g. `dqrobotics.md`) |
 | `myst.yml` | MyST project config (root): LaTeX macros, TOC, site options |
 | `build_html.sh` | Build script for `jupyter-book` |
@@ -52,6 +53,26 @@ x = np.array([1, 2, 3])
 - LaTeX equations use inline `$...$` or display `$$...$$` syntax with the `dollarmath` MyST extension enabled in `conf.py`.
 - Custom macros (`\myvec`, `\mymatrix`, `\quat`, `\dual`) are defined in `myst.yml` under `project.math`.
 
+### `%%capture` magic
+
+**`%%capture` magic IS supported** in MyST text notebooks. MyST uses a Jupyter Server with an IPython kernel to execute code cells ([Execute Notebooks at Build Time](https://mystmd.org/guide/execute-notebooks)). The `%%capture` magic is a built-in IPython cell magic ([Built-in magic commands — IPython](https://ipython.readthedocs.io/en/stable/interactive/magics.html)) and works correctly during MyST execution. Use `%%capture` on `%pip install` cells to suppress output.
+
+### Downloadable `.ipynb` from `.md` notebooks
+
+The `basic_lessons/` `.md` files are the canonical source. `.ipynb` files are generated at build time so visitors can download them:
+
+1. **CI pipeline** (`.github/workflows/notebook_to_html.yml`) runs `jupytext --from md:myst --to notebook` before the MyST build, converting each `basic_lessons/*.md` → `basic_lessons/*.ipynb`.
+2. **`myst.yml` TOC** references the generated `.ipynb` for the lesson section — MyST renders these identically to the `.md` but provides native "Download notebook" buttons.
+3. **`basic_lessons/.gitignore`** excludes `.ipynb` so only `.md` is tracked in git.
+
+To generate locally (e.g. for testing):
+```bash
+pip install jupytext
+for f in basic_lessons/lesson*_tutorial.md basic_lessons/lesson*_exercise_answers.md; do
+  python -m jupytext --from md:myst --to notebook --output "${f%.md}.ipynb" "$f"
+done
+```
+
 ### Image references
 
 - Use relative paths: `![alt](Lesson4.png)` (relative to `basic_lessons/`)
@@ -69,7 +90,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 # For MyST text notebook builds:
-pip install mystmd jupyter-server ipykernel
+pip install mystmd jupyter-server ipykernel jupytext
 
 # For legacy jupyter-book builds:
 pip install jupyter-book --pre
@@ -79,6 +100,13 @@ pip install jupyter-book --pre
 
 **jupyter-book build (CI pipeline):**
 ```bash
+# Step 1: Generate .ipynb from .md (required for download buttons)
+pip install jupytext
+for f in basic_lessons/lesson*_tutorial.md basic_lessons/lesson*_exercise_answers.md; do
+  python -m jupytext --from md:myst --to notebook --output "${f%.md}.ipynb" "$f"
+done
+
+# Step 2: Build the site
 chmod +x build_html.sh
 ./build_html.sh
 ```
@@ -98,9 +126,10 @@ myst build --html
 ### CI/CD
 
 The GitHub Actions workflow (`.github/workflows/notebook_to_html.yml`) runs on pushes to `main` and on pull requests:
-1. Runs `./build_html.sh` (jupyter-book pipeline)
-2. Uploads `_build/html/` as Pages artifact
-3. Deploys to GitHub Pages
+1. Generates `.ipynb` from `.md` using jupytext
+2. Runs `./build_html.sh` (jupyter-book pipeline)
+3. Uploads `_build/html/` as Pages artifact
+4. Deploys to GitHub Pages
 
 **Timeout:** 5 minutes. Keep cells fast to avoid CI failures.
 
@@ -149,6 +178,7 @@ Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooks
 ### Files excluded from version control:
 - `venv/` — Python virtual environment
 - `_build/` — Build artifacts
+- `basic_lessons/*.ipynb` — Generated at build time from `.md` files
 
 ---
 
@@ -158,7 +188,8 @@ Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooks
 2. Add YAML frontmatter with kernelspec at the top of the file
 3. Follow the header format convention above
 4. Use `{code-cell}` directives for Python code blocks
-5. Update `myst.yml` → add new file(s) to `project.toc` list
-6. Update `basic_lessons/README.md` → add the new lesson to the contents table
-7. Test: `./build_html.sh` from the repository root
-8. Open PR with descriptive title and body
+5. Use `%%capture` on `%pip install` cells to suppress output
+6. Update `myst.yml` — add new file(s) to `project.toc` list as `.ipynb` (generated at build time)
+7. Update `basic_lessons/README.md` — add the new lesson to the contents table
+8. Test: `./build_html.sh` from the repository root
+9. Open PR with descriptive title and body

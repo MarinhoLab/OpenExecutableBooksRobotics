@@ -10,10 +10,9 @@ kernelspec:
 
 *Author: Murilo M. Marinho (murilo.marinho@manchester.ac.uk)*
 
-### I found an issue
+## I found an issue
 Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooksRobotics/issues
 
-### Latex Macros
 
 # Valid imports
 
