@@ -184,7 +184,6 @@ Just in case `numpy` is not already installed, we can install it with the follow
 
 ````{code-cell}
 %pip install numpy 
-%pip install numpy --break-system-packages
 ````
 
 ### Importing the library

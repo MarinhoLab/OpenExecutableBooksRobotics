@@ -4,14 +4,26 @@ kernelspec:
   display_name: 'Python 3'
 ---
 
-# Package installation
+# L4 Differential Kinematics
+
+*License: CC-BY-NC-SA 4.0*
+
+*Author: Murilo M. Marinho (murilo.marinho@manchester.ac.uk)*
+
+### Prerequisites for the learner
+The user of this notebook is expected to have prior knowledge in
+- All the content and prerequisites of lessons 1, 2, and 3.
+
+### I found an issue
+Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooksRobotics/issues
+
+## Package installation
 
 ````{code-cell}
 %pip install numpy
-%pip install numpy --break-system-packages
 ````
 
-# Imports
+## Imports
 
 ````{code-cell}
 import numpy as np

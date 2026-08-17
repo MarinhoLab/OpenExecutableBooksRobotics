@@ -8,7 +8,6 @@ kernelspec:
 
 ````{code-cell}
 %pip install numpy matplotlib
-%pip install numpy matplotlib --break-system-packages
 ````
 
 # Imports
