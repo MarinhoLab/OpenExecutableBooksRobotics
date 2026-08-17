@@ -96,6 +96,22 @@ This script:
 - **`%%capture` magic IS supported** in MyST text notebooks. MyST uses a Jupyter Server with an IPython kernel to execute code cells ([Execute Notebooks at Build Time](https://mystmd.org/guide/execute-notebooks)). The `%%capture` magic is a built-in IPython cell magic ([Built-in magic commands — IPython](https://ipython.readthedocs.io/en/stable/interactive/magics.html)) and works correctly during MyST execution.
 - If output suppression is needed without `%%capture`, the MyST-native approach is to use cell tags like `remove-stdout` and `remove-stderr` on the `{code-cell}` directive.
 
+### Downloadable `.ipynb` from `.md` notebooks
+
+The `unstable/` `.md` files are the canonical source. `.ipynb` files are generated at build time so visitors can download them:
+
+1. **CI pipeline** (`.github/workflows/notebook_to_html.yml`) runs `jupytext --from md:myst --to notebook` before the MyST build, converting each `unstable/*.md` → `unstable/*.ipynb`.
+2. **`myst.yml` TOC** references the generated `.ipynb` for the unstable section — MyST renders these identically to the `.md` but provides native "Download notebook" buttons.
+3. **`unstable/.gitignore`** excludes `*.ipynb` so only `.md` is tracked in git.
+
+To generate locally (e.g. for testing):
+```bash
+pip install jupytext
+for f in unstable/lesson*_tutorial.md unstable/lesson*_exercise_answers.md; do
+  python -m jupytext --from md:myst --to notebook --output "${f%.md}.ipynb" "$f"
+done
+```
+
 ---
 
 ## Building & Testing
@@ -108,7 +124,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 # For MyST text notebook builds:
-pip install mystmd jupyter-server ipykernel
+pip install mystmd jupyter-server ipykernel jupytext
 
 # For legacy jupyter-book builds:
 pip install jupyter-book --pre
@@ -118,6 +134,13 @@ pip install jupyter-book --pre
 
 **MyST build (root — includes all lessons + unstable):**
 ```bash
+# Step 1: Generate .ipynb from .md (required for unstable section)
+pip install jupytext
+for f in unstable/lesson*_tutorial.md unstable/lesson*_exercise_answers.md; do
+  python -m jupytext --from md:myst --to notebook --output "${f%.md}.ipynb" "$f"
+done
+
+# Step 2: Build the site
 myst build --html
 ```
 - `--execute` runs all code cells and caches results in `_build/execute/`

@@ -34,6 +34,19 @@ jobs:
       # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      # Convert unstable/*.md → unstable/*.ipynb so the site provides "Download notebook" buttons
+      # https://jupytext.readthedocs.io/ — supports md:myst format natively
+      # Must run BEFORE build so myst/jupyter-book can pick up the generated notebooks
+      - name: Generate downloadable notebooks
+        run: |
+          pip install jupytext
+          for f in unstable/lesson*_tutorial.md unstable/lesson*_exercise_answers.md; do
+            [ -f "$f" ] || continue
+            out="${f%.md}.ipynb"
+            python -m jupytext --from md:myst --to notebook --output "$out" "$f"
+            echo "Generated: $out"
+          done
+
       # Runs a set of commands using the runner's shell
       # https://mystmd.org/guide/deployment-github-pages#fn-except-custom-domains
       - name: Install dependencies and build page
