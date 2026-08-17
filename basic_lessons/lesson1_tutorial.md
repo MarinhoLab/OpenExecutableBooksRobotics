@@ -10,7 +10,7 @@ kernelspec:
 
 *Author: Murilo M. Marinho (murilo.marinho@manchester.ac.uk)*
 
-### Prerequisites
+## Prerequisites
 The user of this notebook is expected to have prior knowledge in
 - Basic Python [[Tutorial]](https://docs.python.org/3/tutorial/index.html)
 - Numpy 
@@ -18,12 +18,8 @@ The user of this notebook is expected to have prior knowledge in
     - [[Tutorial: for MATLAB users]](https://numpy.org/doc/stable/user/numpy-for-matlab-users.html)
 - Jupyter Notebook Basics [[Tutorial]](https://docs.jupyter.org/en/latest/)
 
-### I found an issue
+## I found an issue
 Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooksRobotics/issues
-
-### Latex Macros
-
-# A quick Python refresher
 
 ## Variable assignment 
 
@@ -183,6 +179,7 @@ print(f't_phi={t_phi}')
 Just in case `numpy` is not already installed, we can install it with the following command. Nothing will happen if the library is already installed.
 
 ````{code-cell}
+%%capture
 %pip install numpy 
 ````
 

@@ -10,16 +10,17 @@ kernelspec:
 
 *Author: Murilo M. Marinho (murilo.marinho@manchester.ac.uk)*
 
-### Prerequisites for the learner
+## Prerequisites for the learner
 The user of this notebook is expected to have prior knowledge in
 - All the content and prerequisites of lessons 1 and 2.
 
-### I found an issue
+## I found an issue
 Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooksRobotics/issues
 
-## Prerequisites
+## Package installation
 
 ````{code-cell}
+%%capture
 %pip install numpy
 ````
 

@@ -1,5 +1,0 @@
-# MyST build artifacts
-_build/
-
-# Generated .ipynb files (converted from .md at build time via jupytext)
-*.ipynb

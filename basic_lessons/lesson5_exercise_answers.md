@@ -4,9 +4,19 @@ kernelspec:
   display_name: 'Python 3'
 ---
 
+# L5 Exercise Answers
+
+*License: CC-BY-NC-SA 4.0*
+
+*Author: Murilo M. Marinho (murilo.marinho@manchester.ac.uk)*
+
+## I found an issue
+Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooksRobotics/issues
+
 # Package installation
 
 ````{code-cell}
+%%capture
 %pip install numpy matplotlib
 ````
 

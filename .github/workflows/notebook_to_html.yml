@@ -1,16 +1,15 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Jupyter Book
+name: MyST Book
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -22,7 +21,7 @@ jobs:
 
     # To prevent github actions from eating up too many enterprise minutes
     timeout-minutes: 5
-    
+
     # https://github.com/actions/starter-workflows/blob/55eb18560f57898549b12afa6defe7cc79705d6a/pages/static.yml#L13
     permissions:
       contents: read
@@ -34,13 +33,13 @@ jobs:
       # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Convert unstable/*.md → unstable/*.ipynb so the site provides "Download notebook" buttons
+      # Convert basic_lessons/*.md → basic_lessons/*.ipynb so the site provides "Download notebook" buttons
       # https://jupytext.readthedocs.io/ — supports md:myst format natively
       # Must run BEFORE build so myst/jupyter-book can pick up the generated notebooks
       - name: Generate downloadable notebooks
         run: |
           pip install jupytext
-          for f in unstable/lesson*_tutorial.md unstable/lesson*_exercise_answers.md; do
+          for f in basic_lessons/lesson*_tutorial.md basic_lessons/lesson*_exercise_answers.md; do
             [ -f "$f" ] || continue
             out="${f%.md}.ipynb"
             python -m jupytext --from md:myst --to notebook --output "$out" "$f"

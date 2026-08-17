@@ -4,9 +4,23 @@ kernelspec:
   display_name: 'Python 3'
 ---
 
+# L5 Kinematic Control
+
+*License: CC-BY-NC-SA 4.0*
+
+*Author: Murilo M. Marinho (murilo.marinho@manchester.ac.uk)*
+
+## Prerequisites for the learner
+The user of this notebook is expected to have prior knowledge in
+- All the content and prerequisites of lessons 1, 2, 3, and 4.
+
+## I found an issue
+Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooksRobotics/issues
+
 # Package installation
 
 ````{code-cell}
+%%capture
 %pip install numpy matplotlib
 ````
 

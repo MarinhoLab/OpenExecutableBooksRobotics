@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Open Executable Books in Robotics** is a collection of Jupyter notebooks teaching kinematic modelling and control of serial-link robotic manipulators. The project is licensed under [CC-BY-NC-SA 4.0](LICENSE) and hosted at <https://github.com/MarinhoLab/OpenExecutableBooksRobotics>.
+**Open Executable Books in Robotics** is a collection of MyST text notebooks teaching kinematic modelling and control of serial-link robotic manipulators. The project is licensed under [CC-BY-NC-SA 4.0](LICENSE) and hosted at <https://github.com/MarinhoLab/OpenExecutableBooksRobotics>.
 
 ---
 
@@ -10,107 +10,73 @@
 
 | Path | Purpose |
 |------|---------|
-| `basic_lessons/` | Canonical source: `.ipynb` notebooks (5 tutorials + 5 exercise answer keys) |
-| `unstable/` | Work-in-progress text-only MyST notebooks (`.md` with `{code-cell}` directives) |
+| `basic_lessons/` | Canonical source: MyST text notebooks (`.md` with `{code-cell}` directives) — 6 tutorials + 5 exercise answer keys |
+| `basic_lessons/.gitignore` | Excludes generated `.ipynb` files (produced at build time) |
 | `other/` | Supplementary content (e.g. `dqrobotics.md`) |
-| `convert_to_myst.py` | Script: converts `basic_lessons/*.ipynb` → `unstable/*.md` |
-| `myst.yml` | MyST project config (root): LaTeX macros, TOC (including unstable section), site options |
-| `unstable/myst.yml` | Standalone MyST project config for unstable-only builds (optional) |
-| `build_html.sh` | Build script for `jupyter-book` (legacy pipeline) |
+| `myst.yml` | MyST project config (root): LaTeX macros, TOC, site options |
+| `build_html.sh` | Build script for `jupyter-book` |
 | `conf.py` | MyST parser extensions (`dollarmath`) |
-| `_build/` | Build artifacts (excluded from git via `unstable/.gitignore`) |
+| `_build/` | Build artifacts (excluded from git) |
 
 ---
 
-## Modifying `.ipynb` Files
+## Modifying MyST Text Notebooks
 
-Jupyter notebooks are JSON files. Every cell's `source` field is a **list of strings**, where **each string must end with `\n`** (trailing newline). This is critical:
+Lessons are [MyST text notebooks](https://mystmd.org/guide/notebooks-with-markdown) — plain Markdown files with `{code-cell}` directives. They are version-control friendly and human-readable.
 
-### Correct format (renders properly in Jupyter):
-```json
-"source": [
-    "# L1 A quick Python refresher\n",
-    "\n",
-    "*License: CC-BY-NC-SA 4.0*\n",
-    "\n",
-    "### Prerequisites\n",
-    "The user of this notebook is expected to have prior knowledge in\n"
-]
-```
+### Structure
 
-### Broken format (renders as one concatenated line):
-```json
-"source": [
-    "# L1 A quick Python refresher",
-    "",
-    "*License: CC-BY-NC-SA 4.0*",
-    ""
-]
-```
+Each `.md` lesson file begins with YAML frontmatter declaring the kernel:
 
-### When editing notebooks programmatically:
-1. Load with `json.load()`, modify `cell['source']` entries.
-2. **Every source line must end with `\n`** before writing back.
-3. Save with `json.dump(nb, f, indent=1)` (single-space indent is standard).
-4. Clear execution state on code cells to avoid stale output:
-   ```python
-   cell['outputs'] = []
-   cell['execution_count'] = None
-   ```
-
-### When editing notebooks manually:
-- Use a notebook editor (Jupyter, VSCode, or nbconvert) rather than raw text edits.
-- If editing raw JSON, always verify trailing `\n` on source lines.
-
-### Cell types:
-| Type | Purpose |
-|------|---------|
-| `markdown` | Text, equations, images, headings |
-| `code` | Python cells (numpy, math) |
-| `raw` | Raw LaTeX macro definitions (`\providecommand`) |
-
-### LaTeX macros:
-Custom macros (`\myvec`, `\mymatrix`, `\quat`, `\dual`) are defined in two places:
-1. As **raw cells** in each notebook (for Jupyter/LaTeX rendering)
-2. In **`myst.yml`** under `project.math` (for MyST rendering)
-
+```yaml
 ---
-
-## Converting to MyST Text Notebooks
-
-Run the converter script to regenerate `unstable/*.md` from the canonical notebooks:
-
-```bash
-python3 convert_to_myst.py
+kernelspec:
+  name: python3
+  display_name: 'Python 3'
+---
 ```
 
-This script:
-- Copies images (`Lesson4.png`, `Lesson4.svg`) to `unstable/`
-- Converts markdown cells as-is, code cells as `    ````{code-cell}```` directives
-- Strips raw cells and LaTeX macro markdown cells (handled by `myst.yml`)
-- Fixes `attachment:` image syntax → plain relative paths
-- Handles both trailing-newline and no-trailing-newline source formats
+Code cells are delimited with `{code-cell}` directives:
 
-### MyST Compatibility Notes
+````markdown
+````{code-cell}
+import numpy as np
+x = np.array([1, 2, 3])
+````
+````
 
-- **`%%capture` magic IS supported** in MyST text notebooks. MyST uses a Jupyter Server with an IPython kernel to execute code cells ([Execute Notebooks at Build Time](https://mystmd.org/guide/execute-notebooks)). The `%%capture` magic is a built-in IPython cell magic ([Built-in magic commands — IPython](https://ipython.readthedocs.io/en/stable/interactive/magics.html)) and works correctly during MyST execution.
-- If output suppression is needed without `%%capture`, the MyST-native approach is to use cell tags like `remove-stdout` and `remove-stderr` on the `{code-cell}` directive.
+### Editing guidelines
+
+- Edit `.md` files directly — they are plain text.
+- Every lesson should follow the header format convention (see below).
+- Keep code cells focused and self-contained.
+- LaTeX equations use inline `$...$` or display `$$...$$` syntax with the `dollarmath` MyST extension enabled in `conf.py`.
+- Custom macros (`\myvec`, `\mymatrix`, `\quat`, `\dual`) are defined in `myst.yml` under `project.math`.
+
+### `%%capture` magic
+
+**`%%capture` magic IS supported** in MyST text notebooks. MyST uses a Jupyter Server with an IPython kernel to execute code cells ([Execute Notebooks at Build Time](https://mystmd.org/guide/execute-notebooks)). The `%%capture` magic is a built-in IPython cell magic ([Built-in magic commands — IPython](https://ipython.readthedocs.io/en/stable/interactive/magics.html)) and works correctly during MyST execution. Use `%%capture` on `%pip install` cells to suppress output.
 
 ### Downloadable `.ipynb` from `.md` notebooks
 
-The `unstable/` `.md` files are the canonical source. `.ipynb` files are generated at build time so visitors can download them:
+The `basic_lessons/` `.md` files are the canonical source. `.ipynb` files are generated at build time so visitors can download them:
 
-1. **CI pipeline** (`.github/workflows/notebook_to_html.yml`) runs `jupytext --from md:myst --to notebook` before the MyST build, converting each `unstable/*.md` → `unstable/*.ipynb`.
-2. **`myst.yml` TOC** references the generated `.ipynb` for the unstable section — MyST renders these identically to the `.md` but provides native "Download notebook" buttons.
-3. **`unstable/.gitignore`** excludes `*.ipynb` so only `.md` is tracked in git.
+1. **CI pipeline** (`.github/workflows/notebook_to_html.yml`) runs `jupytext --from md:myst --to notebook` before the MyST build, converting each `basic_lessons/*.md` → `basic_lessons/*.ipynb`.
+2. **`myst.yml` TOC** references the generated `.ipynb` for the lesson section — MyST renders these identically to the `.md` but provides native "Download notebook" buttons.
+3. **`basic_lessons/.gitignore`** excludes `.ipynb` so only `.md` is tracked in git.
 
 To generate locally (e.g. for testing):
 ```bash
 pip install jupytext
-for f in unstable/lesson*_tutorial.md unstable/lesson*_exercise_answers.md; do
+for f in basic_lessons/lesson*_tutorial.md basic_lessons/lesson*_exercise_answers.md; do
   python -m jupytext --from md:myst --to notebook --output "${f%.md}.ipynb" "$f"
 done
 ```
+
+### Image references
+
+- Use relative paths: `![alt](Lesson4.png)` (relative to `basic_lessons/`)
+- Images (`Lesson4.png`, `Lesson4.svg`) live alongside the lesson files in `basic_lessons/`.
 
 ---
 
@@ -132,41 +98,38 @@ pip install jupyter-book --pre
 
 ### Build Commands
 
-**MyST build (root — includes all lessons + unstable):**
+**jupyter-book build (CI pipeline):**
 ```bash
-# Step 1: Generate .ipynb from .md (required for unstable section)
+# Step 1: Generate .ipynb from .md (required for download buttons)
 pip install jupytext
-for f in unstable/lesson*_tutorial.md unstable/lesson*_exercise_answers.md; do
+for f in basic_lessons/lesson*_tutorial.md basic_lessons/lesson*_exercise_answers.md; do
   python -m jupytext --from md:myst --to notebook --output "${f%.md}.ipynb" "$f"
 done
 
 # Step 2: Build the site
+chmod +x build_html.sh
+./build_html.sh
+```
+- Installs `jupyter-book --pre` (Jupyter Book 2.0 alpha)
+- Sets `BASE_URL` for correct link resolution
+- Runs `python -m jupyter book build --html --execute`
+- Outputs to `_build/html/`
+
+**MyST build (local development):**
+```bash
+pip install mystmd jupyter-server ipykernel
 myst build --html
 ```
 - `--execute` runs all code cells and caches results in `_build/execute/`
 - `--html` produces HTML output in `_build/html/`
-- Site format (JSON) goes to `_build/site/`
-
-**MyST build (unstable only — optional):**
-```bash
-cd unstable
-myst build --execute --html
-```
-
-**Legacy jupyter-book build (root):**
-```bash
-chmod +x build_html.sh
-./build_html.sh
-```
-- Requires `BASE_URL` env variable for correct link resolution
-- Outputs to `_build/html/`
 
 ### CI/CD
 
-The GitHub Actions workflow (`.github/workflows/notebook_to_html.yml`) runs on pushes/PRs to `main`:
-1. Runs `./build_html.sh` (jupyter-book pipeline)
-2. Uploads `_build/html/` as Pages artifact
-3. Deploys to GitHub Pages
+The GitHub Actions workflow (`.github/workflows/notebook_to_html.yml`) runs on pushes to `main` and on pull requests:
+1. Generates `.ipynb` from `.md` using jupytext
+2. Runs `./build_html.sh` (jupyter-book pipeline)
+3. Uploads `_build/html/` as Pages artifact
+4. Deploys to GitHub Pages
 
 **Timeout:** 5 minutes. Keep cells fast to avoid CI failures.
 
@@ -196,9 +159,8 @@ Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooks
 - `\dual{}` for dual numbers
 
 ### Image references:
-- In `.ipynb`: `![alt](Lesson4.png)` (relative to `basic_lessons/`)
-- In `.md` (unstable): same — images are copied to `unstable/`
-- Avoid `attachment:` prefix in MyST notebooks
+- Use relative paths: `![alt](Lesson4.png)` (relative to `basic_lessons/`)
+- Images live alongside the lesson files in `basic_lessons/`.
 
 ### Language:
 - **UK English** spelling (e.g. *behaviour*, *modelling*, *summarised*)
@@ -215,18 +177,19 @@ Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooks
 
 ### Files excluded from version control:
 - `venv/` — Python virtual environment
-- `_build/` — Build artifacts (both root and `unstable/`)
-- `unstable/.gitignore` already excludes `unstable/_build/`
+- `_build/` — Build artifacts
+- `basic_lessons/*.ipynb` — Generated at build time from `.md` files
 
 ---
 
 ## Adding a New Lesson
 
-1. Create `basic_lessons/lesson<N>_tutorial.ipynb` and `basic_lessons/lesson<N>_exercise_answers.ipynb`
-2. Follow the header format convention above
-3. Add LaTeX macro raw cell (or markdown cell with `vscode` language metadata)
-4. Update `myst.yml` → add new file to `project.toc` list
-5. Run `python3 convert_to_myst.py` to regenerate `unstable/`
-6. Update `myst.yml` → add new unstable `.md` file to the "Unstable" section in `project.toc`
-7. Test: `myst build --html` from the repository root
-8. Open PR with descriptive title and body
+1. Create `basic_lessons/lesson<N>_tutorial.md` (and optionally `basic_lessons/lesson<N>_exercise_answers.md`)
+2. Add YAML frontmatter with kernelspec at the top of the file
+3. Follow the header format convention above
+4. Use `{code-cell}` directives for Python code blocks
+5. Use `%%capture` on `%pip install` cells to suppress output
+6. Update `myst.yml` — add new file(s) to `project.toc` list as `.ipynb` (generated at build time)
+7. Update `basic_lessons/README.md` — add the new lesson to the contents table
+8. Test: `./build_html.sh` from the repository root
+9. Open PR with descriptive title and body
