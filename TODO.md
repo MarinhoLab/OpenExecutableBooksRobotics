@@ -11,14 +11,19 @@ that properly shows the video but not the image.
 
 ## Text-based notebooks
 
-- Converting from traditional Jupyter notebooks to text-based notebooks might be an interesting topic to explore. See
+**Done — achieved in August 2026.** The lessons were migrated from classic Jupyter
+notebooks to MyST text-based notebooks (`.md` with `{code-cell}` directives), stored
+under `basic_lessons/` (see [PR #9](https://github.com/MarinhoLab/OpenExecutableBooksRobotics/pull/9)).
+The items below are therefore no longer open:
+
+- ~~Converting from traditional Jupyter notebooks to text-based notebooks might be an interesting topic to explore. See
   [link](https://myst-nb.readthedocs.io/en/latest/authoring/text-notebooks.html#authoring-text-notebooks). Classic notebooks
   store cell output on themselves, with implications on version control software. While classic Jupyter notebooks are more
-  easily usable without extensions, `jupytext` seemingly allows for the conversions. See [link](https://jupyterbook.org/en/stable/file-types/myst-notebooks.html).
-- The so-called [paired notebooks](https://jupytext.readthedocs.io/en/latest/paired-notebooks.html) are possibly the solution. 
+  easily usable without extensions, `jupytext` seemingly allows for the conversions. See [link](https://jupyterbook.org/en/stable/file-types/myst-notebooks.html).~~
+- ~~The so-called [paired notebooks](https://jupytext.readthedocs.io/en/latest/paired-notebooks.html) are possibly the solution. 
   Given that the latex macros sometimes do not render well in `jupyterlab`, this could become indirectly a solution.
   The latex support for `myst` is much less hacky, so it is likely that the notebooks exported from the text version
-  are more likely to be compatible with `jupyterlab`.
+  are more likely to be compatible with `jupyterlab`.~~
 
 ## Notes
 

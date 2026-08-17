@@ -176,9 +176,10 @@ Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooks
 - Example: `fix/typos-and-uk-english`, `feat/add-lesson6`
 
 ### Files excluded from version control:
-- `venv/` — Python virtual environment
-- `_build/` — Build artifacts
-- `basic_lessons/*.ipynb` — Generated at build time from `.md` files
+- `basic_lessons/*.ipynb` — Generated at build time from `.md` files (via `basic_lessons/.gitignore`)
+
+There is intentionally no root `.gitignore`. If you create local `venv/` or `_build/`
+directories, keep them out of commits (e.g. via `.git/info/exclude`).
 
 ---
 
