@@ -49,17 +49,17 @@ project:
     - title: "Unstable"
       children:
         - file: unstable/README.md
-        - file: unstable/lesson0_tutorial.md
-        - file: unstable/lesson1_tutorial.md
-        - file: unstable/lesson2_tutorial.md
-        - file: unstable/lesson3_tutorial.md
-        - file: unstable/lesson4_tutorial.md
-        - file: unstable/lesson5_tutorial.md
-        - file: unstable/lesson1_exercise_answers.md
-        - file: unstable/lesson2_exercise_answers.md
-        - file: unstable/lesson3_exercise_answers.md
-        - file: unstable/lesson4_exercise_answers.md
-        - file: unstable/lesson5_exercise_answers.md
+        - file: unstable/lesson0_tutorial.ipynb
+        - file: unstable/lesson1_tutorial.ipynb
+        - file: unstable/lesson2_tutorial.ipynb
+        - file: unstable/lesson3_tutorial.ipynb
+        - file: unstable/lesson4_tutorial.ipynb
+        - file: unstable/lesson5_tutorial.ipynb
+        - file: unstable/lesson1_exercise_answers.ipynb
+        - file: unstable/lesson2_exercise_answers.ipynb
+        - file: unstable/lesson3_exercise_answers.ipynb
+        - file: unstable/lesson4_exercise_answers.ipynb
+        - file: unstable/lesson5_exercise_answers.ipynb
 
 site:
   template: book-theme
