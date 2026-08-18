@@ -4,13 +4,13 @@ In this six-lesson tutorial, we start from the very basics of setting up your Py
 then cover scalar and matricial operations in Python using `numpy`,
 all the way until the basics of kinematic control. Until kinematic control, most is based on [@spong2020robot].
 
-# Using this book
+## Using this book
 
 Each lesson is a [MyST text notebook](https://mystmd.org/guide/notebooks-with-markdown). Each lesson can be
 opened and executed with popular IDEs, such as [VSCode](https://code.visualstudio.com) and [PyCharm](https://www.jetbrains.com/pycharm/).
 The reader is expected to follow it sequentially.
 
-# Contents
+## Contents
 
 
 | Number | Title and Link               | Content                                                                                                                                                                                                                                    |

@@ -322,7 +322,7 @@ We can also perform pose transformations using sequential right multiplications 
 
 For example, consider a translation in 3D along the _World_ frame, represented by the homogeneous transformation matrix below.
 
-$$\mymatrix{H}^0_a = \mymatrix{H}_a = \left[\begin{array}{ccc}
+$$\mymatrix{H}^0_a = \mymatrix{H}_a = \left[\begin{array}{cccc}
                                          1 & 0 & 0 & 1 \\
                                          0 & 1 & 0 & 2 \\
                                          0 & 0 & 1 & 3 \\
@@ -331,7 +331,7 @@ $$\mymatrix{H}^0_a = \mymatrix{H}_a = \left[\begin{array}{ccc}
 
 Consider a rotation in 3D about the _current_ frame, represented by the homogeneous transformation matrix below.
 
-$$\mymatrix{H}^a_b = \left[\begin{array}{ccc}
+$$\mymatrix{H}^a_b = \left[\begin{array}{cccc}
                      \cos{\theta_{ab}} & -\sin{\theta_{ab}} & 0 & 0 \\
                      \sin{\theta_{ab}} & \cos{\theta_{ab}}  & 0 & 0 \\
                      0                 & 0                  & 1 & 0 \\

@@ -71,7 +71,7 @@ pip install numpy matplotlib
 
 You can verify that the packages are correctly installed by running the cell below.
 
-````{code-cell}
+````{code-cell} python
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
