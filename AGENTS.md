@@ -123,6 +123,22 @@ myst build --html
 - `--execute` runs all code cells and caches results in `_build/execute/`
 - `--html` produces HTML output in `_build/html/`
 
+### Keeping the build warning-free
+
+The CI `build` job runs the real build, so keep it free of warnings. The three
+warning classes seen so far (all fixed in #11):
+
+- **`missing heading depth N`** — a page jumps heading levels (e.g. `#` then
+  `###`, skipping `##`). Use consecutive depths.
+- **`textEnv, Too few columns specified in the {array} column argument`** — a
+  `\begin{array}{...}` declares fewer columns than a row has. Match the spec to
+  the actual column count (e.g. a 4×4 matrix needs `{cccc}`, not `{ccc}`).
+- **`Language is not defined for code block`** — a `{code-cell}` with no
+  language. Add `python` (``{code-cell} python``). Note this only surfaces for
+  lessons referenced in `myst.yml` as **`.md`** (currently lesson 0): lessons
+  1–5 are referenced as **`.ipynb`**, where Jupyter carries the Python language,
+  so their bare `{code-cell}` directives are fine.
+
 ### CI/CD
 
 The GitHub Actions workflow (`.github/workflows/notebook_to_html.yml`) runs on pushes to `main` and on pull requests:
