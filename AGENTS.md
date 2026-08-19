@@ -12,6 +12,7 @@
 |------|---------|
 | `basic_lessons/` | Canonical source: MyST text notebooks (`.md` with `{code-cell}` directives) — 6 tutorials + 5 exercise answer keys |
 | `basic_lessons/.gitignore` | Excludes generated `.ipynb` files (produced at build time) |
+| `convert_to_ipynb.py` | Builds the downloadable `.ipynb` files: `.md` → intermediate `.md` (LaTeX macros expanded) → `.ipynb` |
 | `other/` | Supplementary content (e.g. `dqrobotics.md`) |
 | `myst.yml` | MyST project config (root): LaTeX macros, TOC, site options |
 | `build_html.sh` | Build script for `jupyter-book` |
@@ -59,18 +60,24 @@ x = np.array([1, 2, 3])
 
 ### Downloadable `.ipynb` from `.md` notebooks
 
-The `basic_lessons/` `.md` files are the canonical source. `.ipynb` files are generated at build time so visitors can download them:
+The `basic_lessons/` `.md` files are the canonical source. `.ipynb` files are generated at build time so visitors can download them. The conversion is a **two-step pipeline** run by `convert_to_ipynb.py`:
 
-1. **CI pipeline** (`.github/workflows/notebook_to_html.yml`) runs `jupytext --from md:myst --to notebook` before the MyST build, converting each `basic_lessons/*.md` → `basic_lessons/*.ipynb`.
-2. **`myst.yml` TOC** references the generated `.ipynb` for the lesson section — MyST renders these identically to the `.md` but provides native "Download notebook" buttons.
-3. **`basic_lessons/.gitignore`** excludes `.ipynb` so only `.md` is tracked in git.
+```
+basic_lessons/*.md  ->  <stem>_expanded.md  (LaTeX macros expanded)  ->  basic_lessons/*.ipynb
+```
+
+1. **CI pipeline** (`.github/workflows/notebook_to_html.yml`) runs `python convert_to_ipynb.py` before the MyST build.
+2. **Why the intermediate step?** The lessons use custom LaTeX macros (e.g. `\myvec{q}`) that MyST expands at build time by passing them to KaTeX. Most standalone `.ipynb` renderers (JupyterLab, VS Code, nbviewer, ...) do **not** know these macros and would show them literally. So `convert_to_ipynb.py` first expands every macro to its definition from `myst.yml` (`project.math`), writing a temporary `<stem>_expanded.md`; `jupytext` then converts that expanded file to `.ipynb`. The generated `.ipynb` therefore contains **only standard LaTeX** and renders anywhere. You keep writing the original `.md` with the convenient macros.
+3. **`myst.yml` TOC** references the generated `.ipynb` for the lesson section — MyST renders these identically to the `.md` but provides native "Download notebook" buttons.
+4. **`basic_lessons/.gitignore`** excludes `.ipynb` so only `.md` is tracked in git.
+
+The intermediate `<stem>_expanded.md` files are also build artifacts — deleted after conversion (use `--keep` to inspect them). They are not tracked and not referenced in `myst.yml`.
 
 To generate locally (e.g. for testing):
 ```bash
-pip install jupytext
-for f in basic_lessons/lesson*_tutorial.md basic_lessons/lesson*_exercise_answers.md; do
-  python -m jupytext --from md:myst --to notebook --output "${f%.md}.ipynb" "$f"
-done
+pip install jupytext pyyaml
+python convert_to_ipynb.py          # all lessons
+python convert_to_ipynb.py --keep   # keep the intermediate _expanded.md files
 ```
 
 ### Image references
@@ -101,10 +108,8 @@ pip install jupyter-book --pre
 **jupyter-book build (CI pipeline):**
 ```bash
 # Step 1: Generate .ipynb from .md (required for download buttons)
-pip install jupytext
-for f in basic_lessons/lesson*_tutorial.md basic_lessons/lesson*_exercise_answers.md; do
-  python -m jupytext --from md:myst --to notebook --output "${f%.md}.ipynb" "$f"
-done
+pip install jupytext pyyaml
+python convert_to_ipynb.py
 
 # Step 2: Build the site
 chmod +x build_html.sh
@@ -142,7 +147,7 @@ warning classes seen so far (all fixed in #11):
 ### CI/CD
 
 The GitHub Actions workflow (`.github/workflows/notebook_to_html.yml`) runs on pushes to `main` and on pull requests:
-1. Generates `.ipynb` from `.md` using jupytext
+1. Generates `.ipynb` from `.md` via `python convert_to_ipynb.py` (expanding LaTeX macros into an intermediate `.md` first)
 2. Runs `./build_html.sh` (jupyter-book pipeline)
 3. Uploads `_build/html/` as Pages artifact
 4. Deploys to GitHub Pages
@@ -174,6 +179,12 @@ Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooks
 - `\quat{}` for quaternions
 - `\dual{}` for dual numbers
 
+These are defined in `myst.yml` under `project.math` (KaTeX `#1` substitutions) and
+are expanded by MyST when building the site. Use them freely in the `.md` source —
+`convert_to_ipynb.py` expands them into the downloadable `.ipynb` so the notebooks
+also render in standalone viewers. **Code cells are left untouched** (a macro name
+in a Python comment/variable is never expanded).
+
 ### Image references:
 - Use relative paths: `![alt](Lesson4.png)` (relative to `basic_lessons/`)
 - Images live alongside the lesson files in `basic_lessons/`.
@@ -193,6 +204,7 @@ Thank you! Please report it at https://github.com/MarinhoLab/OpenExecutableBooks
 
 ### Files excluded from version control:
 - `basic_lessons/*.ipynb` — Generated at build time from `.md` files (via `basic_lessons/.gitignore`)
+- `basic_lessons/*_expanded.md` — transient intermediate files from `convert_to_ipynb.py` (deleted after conversion; `--keep` retains them for inspection)
 
 There is intentionally no root `.gitignore`. If you create local `venv/` or `_build/`
 directories, keep them out of commits (e.g. via `.git/info/exclude`).
@@ -207,6 +219,6 @@ directories, keep them out of commits (e.g. via `.git/info/exclude`).
 4. Use `{code-cell}` directives for Python code blocks
 5. Use `%%capture` on `%pip install` cells to suppress output
 6. Update `myst.yml` — add new file(s) to `project.toc` list as `.ipynb` (generated at build time)
-7. Update `basic_lessons/README.md` — add the new lesson to the contents table
-8. Test: `./build_html.sh` from the repository root
+7. Update `basic_lessons/README.md` — add the new lesson to the contents table, linking to the generated `.ipynb` (not the `.md`)
+8. Test: run `python convert_to_ipynb.py` to regenerate the `.ipynb`, then `./build_html.sh` from the repository root
 9. Open PR with descriptive title and body
